@@ -1,50 +1,39 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import {MatSort, Sort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { AppService } from '../app.service';
 @Component({
   selector: 'app-intern-list',
   templateUrl: './intern-list.component.html',
-  styleUrls: ['./intern-list.component.scss']
+  styleUrls: ['./intern-list.component.scss'],
 })
-export class InternListComponent implements OnInit,AfterViewInit {
-  foods=[
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
+export class InternListComponent implements OnInit{
+  foods = [
+    { value: 'steak-0', viewValue: 'Steak' },
+    { value: 'pizza-1', viewValue: 'Pizza' },
+    { value: 'tacos-2', viewValue: 'Tacos' },
   ];
-  data = [
-    {position: 1, firstname: 'Mohu', lastname: "Mohan", email: 'mk@gmail.com',college:'SRM'},
-    {position: 2, firstname: 'krish', lastname: "Test", email: 'test@gmail.com',college:'TRP'},
-    {position: 3, firstname: 'Test1', lastname: "Test2", email: 'test234@gmail.com',college:'RVS'},
-    {position: 1, firstname: 'Mohu', lastname: "Mohan", email: 'mk@gmail.com',college:'SRM'},
-    {position: 2, firstname: 'krish', lastname: "Test", email: 'test@gmail.com',college:'TRP'},
-    {position: 3, firstname: 'Test1', lastname: "Test2", email: 'test234@gmail.com',college:'RVS'},
-    {position: 1, firstname: 'Mohu', lastname: "Mohan", email: 'mk@gmail.com',college:'SRM'},
-    {position: 2, firstname: 'krish', lastname: "Test", email: 'test@gmail.com',college:'TRP'},
-    {position: 3, firstname: 'Test1', lastname: "Test2", email: 'test234@gmail.com',college:'RVS'},
-    {position: 1, firstname: 'Mohu', lastname: "Mohan", email: 'mk@gmail.com',college:'SRM'},
-    {position: 2, firstname: 'krish', lastname: "Test", email: 'test@gmail.com',college:'TRP'},
-    {position: 3, firstname: 'Test1', lastname: "Test2", email: 'test234@gmail.com',college:'RVS'},
-    
-  ];
-  displayedColumns = ['position', 'firstname', 'lastname', 'email','college'];
-  dataSource = new MatTableDataSource<any>();
-  @ViewChild(MatSort) sort: MatSort;
+
   searchText: string;
-  constructor() { }
+  membersList: any;
+  constructor(private appService: AppService) {}
 
-  ngOnInit(): void {
-    this.dataSource.data=this.data;
+  ngOnInit() {
+    this.getAllMembers();
   }
 
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
+  getAllMembers() {
+    this.appService.getAllMember().subscribe(
+      (result) => {
+        console.log(result);
+        this.membersList = result;
+        this.appService.members$.next(this.membersList);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
-  applySearch(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.searchText = filterValue.trim().toLowerCase();
-    this.dataSource.filter = this.searchText;
-}
-
+  applySearch(event: Event) {}
 }

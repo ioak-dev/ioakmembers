@@ -39,6 +39,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MembersComponent } from './intern-list/members/members.component';
+import { ProfileInfoComponent } from './profile-info/profile-info.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,9 +48,11 @@ import { MembersComponent } from './intern-list/members/members.component';
     InternListComponent,
     DashboardComponent,
     MembersComponent,
+    ProfileInfoComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,

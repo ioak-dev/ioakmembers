@@ -1,17 +1,17 @@
 <div class="container">
-<mat-card *ngFor="let member of members" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" >
+<mat-card *ngFor="let member of membersList" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" >
     <!-- <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       
     </mat-card-header> -->
-    <img mat-card-image [src]="member.url" alt="Photo of {{member.title}}">
-    <mat-card-content>
+    <img mat-card-image src="https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png" alt="Photo">
+    <mat-card-content (click)="navigateToProfile(member)">
       <div class="avatar">
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="image">
+        <img [src]="member.profilePic" alt="image">
       </div>
       <div class="name">
-      <mat-card-title>{{member.title}}</mat-card-title>
-      <mat-card-subtitle>{{member.subtitle}}</mat-card-subtitle>
+      <mat-card-title (click)="navigateToProfile(member)">{{member.firstName}}</mat-card-title>
+      <mat-card-subtitle>{{member.jobTitle}}</mat-card-subtitle>
     </div>
     <div class="tools">
       <span><mat-icon>edit</mat-icon></span>

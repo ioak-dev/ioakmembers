@@ -1,0 +1,66 @@
+<div class="profile_container">
+  <div class="profile_background">
+    <img
+      src="https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png"
+    />
+  </div>
+  <!-- <div class="profile_image"> -->
+  <div class="avatar">
+    <img [src]="user?.profilePic" alt="image" />
+    <div>
+      <h2>{{ user?.firstName }} {{ user?.lastName }}</h2>
+      <span class="status">{{ user?.status }}</span>
+    </div>
+  </div>
+  <!-- </div> -->
+  <div class="container_section">
+    <mat-icon>info</mat-icon>
+    <span> INFO</span>
+  </div>
+
+  <div class="info_section">
+    <div class="info_left_section">
+      <div class="info">
+        <div class="info_header">
+          <mat-icon>info</mat-icon>
+          <span> Profile info</span>
+        </div>
+        <div class="info_details">
+          <h3>Name</h3>
+          <span>{{ user?.firstName }} {{ user?.lastName }}</span>
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detail_header">
+          <mat-icon>info</mat-icon>
+          <span> Details</span>
+        </div>
+        <div class="detail_details">
+          <div class="details_section">
+            <h3>Position</h3>
+            <span>{{ user?.jobTitle }}</span>
+          </div>
+          <div class="details_section">
+            <h3>About</h3>
+            <span>{{ user?.about }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info_right_section">
+      <h3>Active Members</h3>
+      <div class="member_list">
+        <div class="members" *ngFor="let member of membersList">
+          <img
+            [src]="member?.profilePic"
+            alt="image"
+            (click)="navigateToProfile(member)"
+            matTooltip="{{ member.firstName }}"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
