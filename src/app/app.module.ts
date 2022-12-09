@@ -38,12 +38,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MembersComponent } from './intern-list/members/members.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationFormComponent,
     InternListComponent,
     DashboardComponent,
+    MembersComponent,
   ],
   imports: [
     BrowserModule,

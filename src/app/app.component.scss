@@ -1,4 +1,24 @@
+.mat-toolbar{
+    background-color: #282733;
+    span{
+        color: white;
+    }
+}
+
 .menu{
     position: absolute;
     right: 30px;
+    color: white;
+}
+.footer{
+    padding: 30px;
+    height: 250px;
+    background-color: #ea3d56;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .coptright{
+        border-top: 1px solid white;
+    }
 }

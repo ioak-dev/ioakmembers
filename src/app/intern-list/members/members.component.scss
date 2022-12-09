@@ -1,0 +1,52 @@
+.container {
+  margin: 35px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  gap: 35px;
+  flex-wrap: wrap;
+  
+  .mat-card{
+      min-width: 250px;
+  }
+  .avatar{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    bottom: 60px;
+    img{
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+    }
+  }
+.name{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.tools{
+    display: flex;
+    gap: 15px;
+    justify-content:  space-evenly;
+    span{
+        padding: 7px;
+        color: white;
+        border-radius: 15%;
+        &:nth-child(1){
+            background-color: #4fc8ff;
+        }
+        &:nth-child(2){
+            background-color: #ffc107;
+        }
+        &:nth-child(3){
+            background-color: #975dfd;
+        }
+        &:nth-child(4){
+            background-color: #39e9d9;
+        }
+    }
+}
+}

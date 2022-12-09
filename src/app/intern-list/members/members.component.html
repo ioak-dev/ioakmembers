@@ -1,0 +1,25 @@
+<div class="container">
+<mat-card *ngFor="let member of members" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" >
+    <!-- <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      
+    </mat-card-header> -->
+    <img mat-card-image [src]="member.url" alt="Photo of {{member.title}}">
+    <mat-card-content>
+      <div class="avatar">
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="image">
+      </div>
+      <div class="name">
+      <mat-card-title>{{member.title}}</mat-card-title>
+      <mat-card-subtitle>{{member.subtitle}}</mat-card-subtitle>
+    </div>
+    <div class="tools">
+      <span><mat-icon>edit</mat-icon></span>
+      <span><mat-icon> comment</mat-icon></span>
+      <span><mat-icon>remove_red_eye</mat-icon></span>
+      <span><mat-icon>group</mat-icon></span>
+    </div>
+      
+    </mat-card-content>
+  </mat-card>
+</div>

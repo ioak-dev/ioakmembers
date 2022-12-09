@@ -7,7 +7,21 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./intern-list.component.scss']
 })
 export class InternListComponent implements OnInit,AfterViewInit {
+  foods=[
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+  ];
   data = [
+    {position: 1, firstname: 'Mohu', lastname: "Mohan", email: 'mk@gmail.com',college:'SRM'},
+    {position: 2, firstname: 'krish', lastname: "Test", email: 'test@gmail.com',college:'TRP'},
+    {position: 3, firstname: 'Test1', lastname: "Test2", email: 'test234@gmail.com',college:'RVS'},
+    {position: 1, firstname: 'Mohu', lastname: "Mohan", email: 'mk@gmail.com',college:'SRM'},
+    {position: 2, firstname: 'krish', lastname: "Test", email: 'test@gmail.com',college:'TRP'},
+    {position: 3, firstname: 'Test1', lastname: "Test2", email: 'test234@gmail.com',college:'RVS'},
+    {position: 1, firstname: 'Mohu', lastname: "Mohan", email: 'mk@gmail.com',college:'SRM'},
+    {position: 2, firstname: 'krish', lastname: "Test", email: 'test@gmail.com',college:'TRP'},
+    {position: 3, firstname: 'Test1', lastname: "Test2", email: 'test234@gmail.com',college:'RVS'},
     {position: 1, firstname: 'Mohu', lastname: "Mohan", email: 'mk@gmail.com',college:'SRM'},
     {position: 2, firstname: 'krish', lastname: "Test", email: 'test@gmail.com',college:'TRP'},
     {position: 3, firstname: 'Test1', lastname: "Test2", email: 'test234@gmail.com',college:'RVS'},
