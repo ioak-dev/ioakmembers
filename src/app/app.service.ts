@@ -19,9 +19,9 @@ export class AppService {
       .pipe(map((response) => response));
   }
 
-  editMember(id: string): Observable<any> {
+  editMember(id: string,userObj: any): Observable<any> {
     return this.http
-      .put(`${this.baseurl}/member/${id}`, httpOptions)
+      .put(`${this.baseurl}/member/${id}`,userObj, httpOptions)
       .pipe(map((response) => response));
   }
 

@@ -8,12 +8,17 @@
   
   .mat-card{
       min-width: 250px;
+      max-height: 400px;
+      img{
+        height: 160px;
+      }
   }
   .avatar{
     position: relative;
     display: flex;
     justify-content: center;
     bottom: 60px;
+    cursor: pointer;
     img{
         height: 90px;
         width: 90px;
@@ -26,6 +31,7 @@
     gap: 15px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .tools{
     display: flex;

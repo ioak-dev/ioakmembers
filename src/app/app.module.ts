@@ -41,6 +41,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MembersComponent } from './intern-list/members/members.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginFormComponent } from './login-form/login-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     MembersComponent,
     ProfileInfoComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,

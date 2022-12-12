@@ -1,0 +1,27 @@
+<div class="login">
+    <span><mat-icon style="float: right;cursor: pointer;" (click)="close()">close</mat-icon></span>
+    <mat-label>User name</mat-label>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          type="text"
+          matInput
+         
+          [(ngModel)]="login.email"
+          placeholder="Email"
+        />
+        
+      </mat-form-field>
+      <mat-label>Password</mat-label>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          type="text"
+          matInput
+          [(ngModel)]="login.password"
+          placeholder="Password"
+        />
+
+      </mat-form-field>
+</div>
+<button class="loginButton"  color="primary" mat-raised-button>Login</button>

@@ -7,7 +7,8 @@
     <img mat-card-image src="https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png" alt="Photo">
     <mat-card-content (click)="navigateToProfile(member)">
       <div class="avatar">
-        <img [src]="member.profilePic" alt="image">
+        <img *ngIf="member.profilePic" [src]="member.profilePic" alt="image">
+        <img *ngIf="!member.profilePic" src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg" alt="image">
       </div>
       <div class="name">
       <mat-card-title (click)="navigateToProfile(member)">{{member.firstName}}</mat-card-title>
