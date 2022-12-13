@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login-form',
@@ -13,9 +13,11 @@ export class LoginFormComponent implements OnInit {
   }
 
   constructor(public dialog: MatDialog,
-    public dialogRef: MatDialogRef<LoginFormComponent>) { }
+    @Optional() public dialogRef: MatDialogRef<LoginFormComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,) { }
 
   ngOnInit(): void {
+    console.log(this.data)
   }
 
   close(){

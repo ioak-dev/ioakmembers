@@ -10,20 +10,21 @@
         (keyup)="applySearch($event)"
         placeholder="Search members..."
         #input
+        [(ngModel)]="searchText"
       />
     </mat-form-field>
   </div>
   <div class="container_middle">
     <div class="members">
       <p>All Members</p>
-      <span class="circle">12</span>
+      <span class="circle">{{membersList?.length}}</span>
     </div>
     <div class="dropdown">
       <mat-form-field appearance="fill">
-        <mat-label>Active</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{ food.viewValue }}
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="selectedStatus" (ngModelChange)="onStatusSelection()">
+          <mat-option *ngFor="let status of statusArray" [value]="status.value">
+            {{ status.viewValue }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -34,7 +35,7 @@
 
   <div class="mat-card_list">
     <app-members
-    [membersList]="membersList"
+    [membersList]="filteredMembersList"
     ></app-members>
   </div>
 </div>

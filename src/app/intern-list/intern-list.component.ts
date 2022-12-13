@@ -7,15 +7,18 @@ import { AppService } from '../app.service';
   templateUrl: './intern-list.component.html',
   styleUrls: ['./intern-list.component.scss'],
 })
-export class InternListComponent implements OnInit{
-  foods = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
+export class InternListComponent implements OnInit {
+  statusArray = [
+    { value: null, viewValue: 'All' },
+    { value: 'Active', viewValue: 'Active' },
+    { value: 'Inactive', viewValue: 'Inactive' },
+    { value: 'Registered', viewValue: 'Registered' },
   ];
 
   searchText: string;
   membersList: any;
+  filteredMembersList: any;
+  selectedStatus: any = null;
   constructor(private appService: AppService) {}
 
   ngOnInit() {
@@ -28,6 +31,7 @@ export class InternListComponent implements OnInit{
         console.log(result);
         this.membersList = result;
         this.appService.members$.next(this.membersList);
+        this.onStatusSelection();
       },
       (error) => {
         console.log(error);
@@ -35,5 +39,19 @@ export class InternListComponent implements OnInit{
     );
   }
 
-  applySearch(event: Event) {}
+  onStatusSelection() {
+    if (this.selectedStatus !== null) {
+      this.filteredMembersList = this.membersList?.filter(
+        (item: any) => item.status === this.selectedStatus
+      );
+    } else {
+      this.filteredMembersList = this.membersList;
+    }
+  }
+
+  applySearch(value: Event): void {
+    this.filteredMembersList = this.membersList.filter((val: any) =>
+      val.firstName.toLowerCase().includes(this.searchText)
+    );
+  }
 }

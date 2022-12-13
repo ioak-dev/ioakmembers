@@ -20,7 +20,8 @@ export class RegistrationFormComponent implements OnInit {
     phoneNumber: new FormControl('',Validators.required),
     education: new FormControl('',Validators.required),
     department: new FormControl('',Validators.required),
-    gender: new FormControl('',Validators.required),
+    jobTitle: new FormControl('',Validators.required),
+    about: new FormControl('',Validators.required),
   });
   userDetails: any = {
     firstName: '',
@@ -29,14 +30,14 @@ export class RegistrationFormComponent implements OnInit {
     phoneNumber: '',
     education:'',
     department:'',
-    gender:''
+    jobTitle:'',
+    about:''
   };
-  genders:["Male","Female"]
   constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {}
 
   updateProfile() {
-    this.router.navigate(['/intern-list']);
+    this.router.navigate(['/members-list']);
   }
 }

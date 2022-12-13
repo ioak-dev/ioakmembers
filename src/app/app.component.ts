@@ -8,7 +8,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'intern-registration';
+  title = 'members-portal';
 
   constructor(public dialog: MatDialog){}
 
@@ -17,10 +17,9 @@ export class AppComponent {
 
     // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    // dialogConfig.data = {
-    //     title: title,
-    //     message:message
-    // };
+    dialogConfig.data = {
+        title: 'login',
+    };
     dialogConfig.minWidth = 500;
 
     const dialogRef = this.dialog.open(LoginFormComponent, dialogConfig);

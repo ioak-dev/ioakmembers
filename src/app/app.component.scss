@@ -1,37 +1,106 @@
-.mat-toolbar{
-    background-color: #282733;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    span{
-        color: white;
-    }
+.mat-toolbar {
+  background-color: #282733;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  span {
+    color: white;
+  }
 }
 
-.menu{
-    // position: absolute;
-    // right: 30px;
-    color: white;
+.menu {
+  // position: absolute;
+  // right: 30px;
+  color: white;
 }
-.login{
-    border: 2px solid #b0b0b0;
-    background-color: #282733;
+.login {
+  border: 2px solid #b0b0b0;
+  background-color: #282733;
+  color: white;
+  &:hover {
+    border: 2px solid #ffffff;
+    background-color: #3d3d3d;
     color: white;
-    &:hover{
-        border: 2px solid #ffffff;
-        background-color: #3d3d3d;
-        color: white;
+  }
+}
+.help_center {
+  padding: 30px;
+  height: 250px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation-name: example;
+  animation-duration: 4s;
+  h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+  p {
+    font-size: 18px;
+  }
+  button {
+    margin-top: 25px;
+    border: 1px solid #ea3d56;
+    color: #ea3d56;
+    padding: 10px 40px;
+    &:hover {
+      background-color: #ea3d56;
+      color: whitesmoke;
     }
+  }
 }
-.footer{
-    padding: 30px;
+
+@keyframes example {
+    0%   {left:0px; top:0px;}
+    55%  {left:200px; top:0px;}
+    100%  {left:200px; top:200px;}
+   }
+
+.footer {
+  padding: 30px;
+  
+  background-color: #ea3d56;
+  color: whitesmoke;
+  .footer_content {
     height: 250px;
-    background-color: #ea3d56;
-    color: whitesmoke;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    .coptright{
-        border-top: 1px solid white;
+    .logo {
+      img {
+        height: 100px;
+        width: 100px;
+      }
     }
+    .community,
+    .membership,
+    .tools {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 10px;
+      a{
+          color: white;
+      }
+    }
+    
+  }
+  .copyright {
+    border-top: 1px solid #ffffff1a;
+    display: flex;
+    justify-content: space-around;
+    p{
+        margin: 20px 0 0 13%;
+        color: #e0e0e0;
+        font-size: 16px;
+    }
+    .media_logo{
+        margin-top: 20px;
+        a{
+            color: white;
+        }
+    }
+  }
 }

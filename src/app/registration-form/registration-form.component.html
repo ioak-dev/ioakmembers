@@ -95,6 +95,36 @@
                         [control]="profileForm.get('email')"
                     ></mat-error> -->
         </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Job Title</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="jobTitle"
+            [(ngModel)]="userDetails.jobTitle"
+            placeholder="Job Title"
+          />
+          <!-- <mat-error
+                        app-error-validation
+                        [control]="profileForm.get('email')"
+                    ></mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>About You</mat-label>
+          <textarea
+          cols="6"
+          rows="6"
+            type="text"
+            matInput
+            formControlName="about"
+            [(ngModel)]="userDetails.about"
+            placeholder="Describe you!"
+          ></textarea>
+          <!-- <mat-error
+                        app-error-validation
+                        [control]="profileForm.get('email')"
+                    ></mat-error> -->
+        </mat-form-field>
       </div>
     </div>
     <div class="container_footer">

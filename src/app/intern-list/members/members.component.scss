@@ -36,9 +36,9 @@
 .tools{
     display: flex;
     gap: 15px;
-    justify-content:  space-evenly;
+    justify-content: center;
     span{
-        padding: 7px;
+        padding: 5px 8px;
         color: white;
         border-radius: 15%;
         &:nth-child(1){
