@@ -3,15 +3,15 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppService } from '../app.service';
 @Component({
-  selector: 'app-intern-list',
-  templateUrl: './intern-list.component.html',
-  styleUrls: ['./intern-list.component.scss'],
+  selector: 'app-member-list',
+  templateUrl: './member-list.component.html',
+  styleUrls: ['./member-list.component.scss'],
 })
 export class InternListComponent implements OnInit{
   foods = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
+    { value: 'active-0', viewValue: 'Active' },
+    { value: 'Inactive-1', viewValue: 'Inactive' },
+    { value: 'online-2', viewValue: 'Online' },
   ];
 
   searchText: string;

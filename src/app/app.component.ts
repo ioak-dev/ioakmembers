@@ -8,7 +8,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'intern-registration';
+  title = 'member-registration';
 
   constructor(public dialog: MatDialog){}
 

@@ -37,6 +37,6 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {}
 
   updateProfile() {
-    this.router.navigate(['/intern-list']);
+    this.router.navigate(['/member-list']);
   }
 }
