@@ -20,7 +20,8 @@ export class RegistrationFormComponent implements OnInit {
     phoneNumber: new UntypedFormControl('',Validators.required),
     education: new UntypedFormControl('',Validators.required),
     department: new UntypedFormControl('',Validators.required),
-    gender: new UntypedFormControl('',Validators.required),
+    jobTitle: new UntypedFormControl('',Validators.required),
+    about: new UntypedFormControl('',Validators.required),
   });
   userDetails: any = {
     firstName: '',
@@ -29,9 +30,9 @@ export class RegistrationFormComponent implements OnInit {
     phoneNumber: '',
     education:'',
     department:'',
-    gender:''
+    jobTitle:'',
+    about:''
   };
-  genders:["Male","Female"]
   constructor(private formBuilder: UntypedFormBuilder, private router: Router) {}
 
   ngOnInit() {}

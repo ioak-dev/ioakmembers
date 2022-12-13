@@ -6,7 +6,13 @@
   </div>
   <!-- <div class="profile_image"> -->
   <div class="avatar" (mouseleave)="isShow = false">
-    <input type="file" accept="image/*" (change)="editPic(file.files)" #file style="display: none;">
+    <input
+      type="file"
+      accept="image/*"
+      (change)="editPic(file.files)"
+      #file
+      style="display: none"
+    />
     <img
       *ngIf="user?.profilePic"
       [src]="user?.profilePic"
@@ -70,23 +76,54 @@
     </div>
 
     <div class="info_right_section">
-      <h3>Active Members</h3>
-      <div class="member_list">
-        <div class="members" *ngFor="let member of membersList">
-          <img
-            *ngIf="member.profilePic"
-            [src]="member?.profilePic"
-            alt="image"
-            (click)="navigateToProfile(member)"
-            matTooltip="{{ member.firstName }}"
-          />
-          <img
-            *ngIf="!member.profilePic"
-            (click)="navigateToProfile(member)"
-            matTooltip="{{ member.firstName }}"
-            src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg"
-            alt="image"
-          />
+      <div class="signin">
+        <mat-icon>assignment_ind</mat-icon>
+        <a  routerLink="/login" style="cursor: pointer;" routerLinkActive="active">SIGN IN TO YOUR ACCOUNT</a>
+      </div>
+      <div class="media">
+        <div class="media_heading">
+          <span>
+            <mat-icon>movie_creation</mat-icon>
+          </span>
+          <h3>Media</h3>
+        </div>
+        <div class="media_content">
+          <span
+            (click)="changeActiveToolbar('images')"
+            [ngClass]="{ active: activeToolbar === 'images' }"
+            >Images<mat-icon>insert_photo</mat-icon></span
+          >
+          <span
+            (click)="changeActiveToolbar('videos')"
+            [ngClass]="{ active: activeToolbar === 'videos' }"
+            >Videos<mat-icon>videocam</mat-icon></span
+          >
+          <span
+            (click)="changeActiveToolbar('files')"
+            [ngClass]="{ active: activeToolbar === 'files' }"
+            >Files<mat-icon>file_copy</mat-icon></span
+          >
+        </div>
+      </div>
+      <div class="right_members">
+        <h3>Active Members</h3>
+        <div class="member_list">
+          <div class="members" *ngFor="let member of membersList">
+            <img
+              *ngIf="member.profilePic"
+              [src]="member?.profilePic"
+              alt="image"
+              (click)="navigateToProfile(member)"
+              matTooltip="{{ member.firstName }}"
+            />
+            <img
+              *ngIf="!member.profilePic"
+              (click)="navigateToProfile(member)"
+              matTooltip="{{ member.firstName }}"
+              src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg"
+              alt="image"
+            />
+          </div>
         </div>
       </div>
     </div>

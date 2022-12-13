@@ -17,10 +17,9 @@ export class AppComponent {
 
     // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    // dialogConfig.data = {
-    //     title: title,
-    //     message:message
-    // };
+    dialogConfig.data = {
+        title: 'login',
+    };
     dialogConfig.minWidth = 500;
 
     const dialogRef = this.dialog.open(LoginFormComponent, dialogConfig);

@@ -12,6 +12,7 @@ export class ProfileInfoComponent implements OnInit {
   membersList: any;
   user: any;
   isShow = false;
+  activeToolbar: any='images';
 
   constructor(
     private route: ActivatedRoute,
@@ -35,6 +36,10 @@ export class ProfileInfoComponent implements OnInit {
 
   navigateToProfile(member: any) {
     this.router.navigate(['/profile-info'], { queryParams: member });
+  }
+
+  navigateToLogin(){
+    this.router.navigate(['/login'])
   }
 
   getUser() {
@@ -73,5 +78,9 @@ export class ProfileInfoComponent implements OnInit {
 
   editPic(file: any) {
     console.log(file);
+  }
+
+  changeActiveToolbar(activeTool:any){
+    this.activeToolbar=activeTool;
   }
 }
