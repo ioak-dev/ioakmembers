@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InternListComponent } from './intern-list.component';
+import { InternListComponent } from './member-list.component';
 
 describe('InternListComponent', () => {
   let component: InternListComponent;

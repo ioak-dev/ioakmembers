@@ -3,9 +3,9 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppService } from '../app.service';
 @Component({
-  selector: 'app-intern-list',
-  templateUrl: './intern-list.component.html',
-  styleUrls: ['./intern-list.component.scss'],
+  selector: 'app-member-list',
+  templateUrl: './member-list.component.html',
+  styleUrls: ['./member-list.component.scss'],
 })
 export class InternListComponent implements OnInit {
   statusArray = [
