@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,14 +13,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration-form.component.scss'],
 })
 export class RegistrationFormComponent implements OnInit {
-  profileForm: FormGroup = new FormGroup({
-    firstName: new FormControl('',Validators.required),
-    lastName: new FormControl('',Validators.required),
-    email: new FormControl('',Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")),
-    phoneNumber: new FormControl('',Validators.required),
-    education: new FormControl('',Validators.required),
-    department: new FormControl('',Validators.required),
-    gender: new FormControl('',Validators.required),
+  profileForm: UntypedFormGroup = new UntypedFormGroup({
+    firstName: new UntypedFormControl('',Validators.required),
+    lastName: new UntypedFormControl('',Validators.required),
+    email: new UntypedFormControl('',Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")),
+    phoneNumber: new UntypedFormControl('',Validators.required),
+    education: new UntypedFormControl('',Validators.required),
+    department: new UntypedFormControl('',Validators.required),
+    gender: new UntypedFormControl('',Validators.required),
   });
   userDetails: any = {
     firstName: '',
@@ -32,7 +32,7 @@ export class RegistrationFormComponent implements OnInit {
     gender:''
   };
   genders:["Male","Female"]
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router) {}
 
   ngOnInit() {}
 
