@@ -48,9 +48,9 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {}
 
   updateProfile() {
-    this.appService.updateMember(this.userDetails).subscribe((result)=>{
-      console.log(result)
+    this.appService.updateMember(this.userDetails).subscribe((result) => {
+      console.log(result);
       this.router.navigate(['/member-list']);
-    })
+    });
   }
 }

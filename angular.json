@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/member-registration",
+            "outputPath": "public",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -47,7 +47,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "5kb"
                 }
               ],
               "fileReplacements": [
@@ -113,5 +113,8 @@
       }
     }
   },
-  "defaultProject": "member-registration"
+  "defaultProject": "member-registration",
+  "cli": {
+    "analytics": "18a4158c-099d-4589-a185-fba6a2ac303e"
+  }
 }
