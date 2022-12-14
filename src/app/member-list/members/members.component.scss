@@ -11,16 +11,18 @@
   .mat-card{
       min-width: 250px;
       max-height: 400px;
+      border-radius: 8px;
       img{
         height: 160px;
       }
   }
   .avatar{
-    position: relative;
+    // position: relative;
     display: flex;
     justify-content: center;
     bottom: 60px;
     cursor: pointer;
+    margin: 50px 0;
     img{
         height: 90px;
         width: 90px;
@@ -34,6 +36,9 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    .mat-card-subtitle{
+        font-size: 18px;
+    }
 }
 .tools{
     display: flex;

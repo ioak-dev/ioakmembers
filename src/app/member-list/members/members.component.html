@@ -4,7 +4,7 @@
       <div mat-card-avatar class="example-header-image"></div>
       
     </mat-card-header> -->
-    <img mat-card-image src="https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png" alt="Photo">
+    <!-- <img mat-card-image src="https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png" alt="Photo"> -->
     <mat-card-content (click)="navigateToProfile(member)">
       <div class="avatar">
         <img *ngIf="member.profilePic" [src]="member.profilePic" alt="image">
@@ -14,12 +14,10 @@
       <mat-card-title (click)="navigateToProfile(member)">{{member.firstName}}</mat-card-title>
       <mat-card-subtitle>{{member.jobTitle}}</mat-card-subtitle>
     </div>
-    <div class="tools">
+    <!-- <div class="tools">
       <span><a href="https://www.linkedin.com/company/ioak/"><img src="../assets/images/linkedin-white.svg"></a></span>
       <span><a href="https://github.com/ioak-dev"><img src="../assets/images/github-white.svg"></a></span>
-      <!-- <span><mat-icon>remove_red_eye</mat-icon></span>
-      <span><mat-icon>group</mat-icon></span> -->
-    </div>
+    </div> -->
       
     </mat-card-content>
   </mat-card>
