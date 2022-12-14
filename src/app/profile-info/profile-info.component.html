@@ -109,6 +109,7 @@
         <h3>Active Members</h3>
         <div class="member_list">
           <div class="members" *ngFor="let member of membersList">
+            <ng-container *ngIf="isActive(member)">
             <img
               *ngIf="member.profilePic"
               [src]="member?.profilePic"
@@ -123,6 +124,7 @@
               src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg"
               alt="image"
             />
+          </ng-container>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ export class ProfileInfoComponent implements OnInit {
   membersList: any;
   user: any;
   isShow = false;
-  activeToolbar: any='images';
+  activeToolbar: any = 'images';
 
   constructor(
     private route: ActivatedRoute,
@@ -38,8 +38,8 @@ export class ProfileInfoComponent implements OnInit {
     this.router.navigate(['/profile-info'], { queryParams: member });
   }
 
-  navigateToLogin(){
-    this.router.navigate(['/login'])
+  navigateToLogin() {
+    this.router.navigate(['/login']);
   }
 
   getUser() {
@@ -80,7 +80,11 @@ export class ProfileInfoComponent implements OnInit {
     console.log(file);
   }
 
-  changeActiveToolbar(activeTool:any){
-    this.activeToolbar=activeTool;
+  changeActiveToolbar(activeTool: any) {
+    this.activeToolbar = activeTool;
+  }
+
+  isActive(member: any): boolean {
+    return member.status === 'Active';
   }
 }

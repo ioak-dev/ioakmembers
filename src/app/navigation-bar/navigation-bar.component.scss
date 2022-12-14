@@ -1,0 +1,28 @@
+.mat-toolbar {
+    background-color: #282733;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    span {
+      color: white;
+    }
+    img{
+      height: 30px;
+    }
+  }
+  
+  .menu {
+    // position: absolute;
+    // right: 30px;
+    color: white;
+  }
+  .login {
+    border: 2px solid #b0b0b0;
+    background-color: #282733;
+    color: white;
+    &:hover {
+      border: 2px solid #ffffff;
+      background-color: #3d3d3d;
+      color: white;
+    }
+  }

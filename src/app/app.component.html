@@ -1,55 +1,5 @@
-<mat-toolbar >
-    <span>Members</span>
-     <div class="menu">
-    <a routerLink="/register" routerLinkActive="active" mat-button>Register</a>
-     <a routerLink="/member-list" mat-button>List</a>
-     <a routerLink="/dashboard"  mat-button>Dashboard</a>
-    </div>
-    <button mat-raised-button (click)="openModal()"  class="login">Login</button>
-   </mat-toolbar>
-
+<app-navigation-bar></app-navigation-bar>
 
 <router-outlet></router-outlet>
-<div class="help_center">
-  <h2>We are all close together</h2>
-  <p>A problem, a question, an emergency?</p>
-  <p>Do not hesitate to visit the help centre, <i>we can help you.</i></p>
-  <button mat-stroked-button>
-    <mat-icon>camera</mat-icon>&nbsp;&nbsp;Help Center
-  </button>
-</div>
-<div class="footer">
-  <div class="footer_content">
-    <div class="logo">
-      <img
-        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyMDUgNzMiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDIwNSA3MzsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9DQoJLnN0MXtmaWxsOiM0NWIzZTQ7fQ0KCS5zdDJ7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDo5Ljc1O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCjwvc3R5bGU+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTQ0LjIsNjkuNWgtMTIuNlY1OS4zaC0wLjNjLTIuNiwzLjgtNS44LDYuOS05LjcsOS4xYy0zLjgsMi4yLTgsMy40LTEyLjYsMy40Yy00LjksMC05LjItMC45LTEzLjItMi44DQoJcy03LjItNC41LTkuOS03LjhjLTIuNy0zLjMtNC44LTcuMS02LjItMTEuNGMtMS40LTQuMy0yLjEtOC44LTIuMS0xMy40YzAtNC41LDAuNy04LjgsMi4yLTEyLjljMS40LTQuMiwzLjUtNy44LDYuMi0xMS4xDQoJYzIuNy0zLjIsNi01LjcsOS44LTcuNmMzLjgtMS44LDguMS0yLjcsMTIuNy0yLjdjNC44LDAsOS4xLDEuMSwxMi45LDMuNGMzLjksMi4zLDcuMSw1LjQsOS43LDkuNGgwLjNWNGgxMi42VjY5LjV6IE0xMjYuNiw1My43DQoJYzMuOC00LjYsNS43LTEwLjIsNS43LTE2LjljMC02LjYtMS45LTEyLjItNS43LTE2LjdjLTMuOC00LjUtOS02LjgtMTUuNS02LjhjLTYuMywwLTExLjMsMi4zLTE1LDYuOWMtMy44LDQuNi01LjcsMTAuMS01LjcsMTYuNg0KCWMwLDYuNSwxLjksMTIuMSw1LjYsMTYuOGMzLjcsNC43LDguOCw3LDE1LjEsN0MxMTcuNiw2MC41LDEyMi44LDU4LjIsMTI2LjYsNTMuN3oiLz4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xODcuMiwzLjloMTUuN0wxNzgsMzQuMmwyNi4zLDM1LjNoLTE2LjRsLTIxLTI5LjVoLTAuMnYyOS41SDE1NFYzLjloMTIuOHYyNy42aDAuMkwxODcuMiwzLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjcuNywyMy40YzIuNi0xLjgsNS44LTIuOSw5LjMtMi45YzMuNCwwLDYuNiwxLjEsOS4zLDIuOWw2LjMtNy41Yy00LjMtMy4yLTkuNy01LjItMTUuNi01LjINCgljLTUuOCwwLTExLjIsMS45LTE1LjYsNS4yTDI3LjcsMjMuNHoiLz4NCjxyZWN0IHg9IjMyLjEiIHk9IjM3LjgiIGNsYXNzPSJzdDAiIHdpZHRoPSI5LjgiIGhlaWdodD0iMjUuNiIvPg0KPGNpcmNsZSBjbGFzcz0ic3QyIiBjeD0iMzciIGN5PSIzNi44IiByPSIzMC45Ii8+DQo8Y2lyY2xlIGNsYXNzPSJzdDAiIGN4PSIzNyIgY3k9IjMzLjEiIHI9IjcuOCIvPg0KPC9zdmc+DQo="
-      />
-      <p>Welcome to the modern extranet <br />and community platform.</p>
-    </div>
-    <div class="community">
-      <h2>Community</h2>
-      <a  routerLink="/dashboard" style="cursor: pointer;" ><span>Dashboard</span></a>
-      <a  routerLink="/intern-list" style="cursor: pointer;" ><span>Members</span></a>
-      <span>News</span>
-    </div>
-    <div class="membership">
-      <h2>Membership</h2>
-      <span>Groups</span>
-    </div>
-    <div class="tools">
-      <h2>More tools</h2>
-      <span>Swipe members</span>
-      <span>Search members</span>
-      <a  routerLink="/login" style="cursor: pointer;"><span>Login</span></a>
-    </div>
-  </div>
-  <div class="copyright">
-    <p>Copyright © 2022. All rights reserved</p>
 
-    <div class="media_logo">
-        <a href="https://www.facebook.com/"><mat-icon >facebook</mat-icon></a>
-        <a href="https://www.github.com/"><mat-icon>github</mat-icon></a>
-        <a href="https://www.telegram.com/"><mat-icon>telegram</mat-icon></a>
-    </div>
-  </div>
-</div>
+<app-footer></app-footer>

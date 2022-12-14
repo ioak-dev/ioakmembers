@@ -1,0 +1,98 @@
+
+.help_center {
+    padding: 30px;
+    height: 250px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation-name: example;
+    animation-duration: 4s;
+    h2 {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: 18px;
+    }
+    button {
+      margin-top: 25px;
+      border: 1px solid #ea3d56;
+      color: #ea3d56;
+      padding: 10px 40px;
+      &:hover {
+        background-color: #ea3d56;
+        color: whitesmoke;
+      }
+    }
+  }
+  
+  @keyframes example {
+      0%   {left:0px; top:0px;}
+      55%  {left:200px; top:0px;}
+      100%  {left:200px; top:200px;}
+     }
+  
+  
+  
+.footer {
+    padding: 30px;
+    
+    background-color: #ea3d56;
+    color: whitesmoke;
+    .footer_content {
+      height: 250px;
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      .logo {
+        img {
+          height: 100px;
+          width: 100px;
+        }
+      }
+      .community,
+      .membership,
+      .tools {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 10px;
+        a{
+            color: white;
+        }
+        h2{
+            text-transform: uppercase;
+        }
+        span{
+            font-size: 18px;
+            color: #e0e0e0;
+        }
+      }
+      
+    }
+    .copyright {
+      border-top: 1px solid #ffffff1a;
+      display: flex;
+      justify-content: space-between;
+      p{
+          margin: 20px 0 0 8%;
+          color: #e0e0e0;
+          font-size: 16px;
+      }
+      .media_logo{
+          margin: 20px 20px 0 0;
+          display: flex;
+          grid-gap: 15px;
+          a{
+              color: white;
+          }
+          img{
+            height: 20px;
+            width: 20px;
+          }
+      }
+    }
+  }

@@ -52,7 +52,7 @@
     display: grid;
     grid-template-columns: 1fr 450px;
     .info_left_section {
-      margin: 20px 50px;
+      margin: 20px 5px;
       .info {
         background-color: white;
         border-radius: 5px;
@@ -107,7 +107,7 @@
       }
     }
     .info_right_section {
-      margin: 20px 50px;
+      margin: 20px 25px;
       .signin {
         display: flex;
         flex-direction: column;
@@ -161,7 +161,7 @@
         .active{
           background-color: #ea3d56;
           color: white;
-          border-radius:20px;
+          border-radius:4px;
           }
       }
     }
@@ -180,6 +180,7 @@
           display: flex;
           grid-gap: 15px;
           flex-wrap: wrap;
+          justify-content: space-evenly;
           .members {
             img {
               height: 80px;

@@ -1,6 +1,12 @@
 .main_container{
     width: 600px;
-    margin: 120px auto;
+    margin: 80px auto;
+    .heading{
+        padding: 50px;
+        margin: 20px 0;
+        background-color: #572b40;
+        color: white;
+    }
     .container_body{
         .container_body_fields{
             display: flex;

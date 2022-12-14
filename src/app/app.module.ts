@@ -42,6 +42,8 @@ import { MembersComponent } from './member-list/members/members.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +53,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     MembersComponent,
     ProfileInfoComponent,
     LoginFormComponent,
+    NavigationBarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
