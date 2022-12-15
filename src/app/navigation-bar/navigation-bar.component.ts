@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { InitializationService } from '../initialization.service';
 import { LoginFormComponent } from '../login-form/login-form.component';
 
 @Component({
@@ -10,23 +11,30 @@ import { LoginFormComponent } from '../login-form/login-form.component';
 })
 export class NavigationBarComponent implements OnInit {
   memberId: any;
-  user:any;
+  user: any;
   name: string;
+  loggedInUser: any;
   constructor(
     public dialog: MatDialog,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private initializationService: InitializationService
   ) {
     this.route.queryParams.subscribe((params) => {
       this.memberId = params['memberId'];
       console.log(this.memberId);
     });
+
+    this.initializationService.loggedInUser$.subscribe((result) => {
+      this.loggedInUser = result;
+      console.log(this.loggedInUser);
+    });
   }
 
   ngOnInit(): void {
-    const firstName=sessionStorage.getItem('firstName');
-    const lastName=sessionStorage.getItem('lastName');
-    this.name=firstName.charAt(0) + lastName.charAt(0);
+    this.name =
+      this.loggedInUser?.firstName.charAt(0) +
+      this.loggedInUser?.lastName.charAt(0);
   }
 
   openModal() {
@@ -59,7 +67,8 @@ export class NavigationBarComponent implements OnInit {
     this.router.navigate([`/member/${this.memberId}/edit`]);
   }
 
-  logout(){
+  logout() {
     sessionStorage.clear();
+    this.initializationService.loggedInUser$.next(null);
   }
 }

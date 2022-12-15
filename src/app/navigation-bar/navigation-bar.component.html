@@ -1,10 +1,23 @@
-<mat-toolbar >
-    <img src="../assets/images/ioak-logo.svg">
-     <div class="menu">
+<mat-toolbar>
+  <img src="../assets/images/ioak-logo.svg" />
+  <div class="menu">
     <a routerLink="/register" routerLinkActive="active" mat-button>Register</a>
-     <a routerLink="/member-list" mat-button>List</a>
-     <a routerLink="/dashboard"  mat-button>Dashboard</a>
-    </div>
-    <button mat-raised-button routerLink="/login"  class="login">Login</button>
-    <span (click)="editProfile()">{{name}}</span>
-   </mat-toolbar>
+    <a routerLink="/member-list" mat-button>List</a>
+    <a routerLink="/dashboard" mat-button>Dashboard</a>
+  </div>
+  <div
+    *ngIf="!loggedInUser"
+    mat-raised-button
+    routerLink="/login"
+    class="login"
+  >
+    <img src="../../assets/images/user.png" />
+  </div>
+  <span *ngIf="loggedInUser" mat-button [matMenuTriggerFor]="menu">{{
+    name
+  }}</span>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="editProfile()">Edit profile</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>

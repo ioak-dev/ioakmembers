@@ -1,31 +1,25 @@
 .mat-toolbar {
-    background-color: #282733;
-    background-color: #00000020;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    span {
-      background-color: white;
-      border-radius: 50%;
-      padding: 5px 10px;
-    }
-    img{
-      height: 30px;
-    }
+  background-color: #282733;
+  background-color: #00000020;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  span {
+    background-color: white;
+    border-radius: 50%;
+    padding: 1px 5px;
+    font-size: 16px;
   }
-  
-  .menu {
-    // position: absolute;
-    // right: 30px;
-    color: white;
+  img {
+    height: 30px;
   }
-  .login {
-    border: 2px solid #b0b0b0;
-    background-color: #282733;
-    color: white;
-    &:hover {
-      border: 2px solid #ffffff;
-      background-color: #3d3d3d;
-      color: white;
-    }
-  }
+}
+
+.menu {
+  // position: absolute;
+  // right: 30px;
+  color: white;
+}
+.login {
+  width: 35px;
+}
