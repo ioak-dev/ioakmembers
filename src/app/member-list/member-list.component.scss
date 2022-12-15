@@ -1,14 +1,23 @@
 .container {
   background-color: #f6f6f6;
   height: auto;
+
   .container_header {
-    padding: 30px;
-    height: 250px;
-    background-color: #fd507e;
-    color: whitesmoke;
-    display: flex;
-    justify-content: center;
+    // padding: 30px;
+    height: 50vh;
+    // background-color: #fd507e;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(111.3deg, rgba(74, 105, 187, .9) 9.6%, rgba(216, 68, 148, .4) 103.3%), url(/assets/images/hero.svg);;
+    background-image: linear-gradient(111.3deg, rgba(187, 74, 166, 0.6) 9.6%, rgba(58, 102, 223, 0.4) 103.3%), url(/assets/images/hero.svg);    
+    // background-image: linear-gradient(111.3deg, rgba(187, 74, 166, 0.2) 9.6%, rgba(58, 102, 223, 0.2) 103.3%), url(/assets/images/hero.jpg); 
+    color: #fff;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    // justify-content: center;
     align-items: center;
+
     h1 {
       font-size: 48px;
       font-weight: 700;
@@ -16,24 +25,29 @@
       letter-spacing: 2px;
     }
   }
+
   .search_box {
     position: relative;
     bottom: 30px;
     display: flex;
     justify-content: center;
+
     .mat-form-field {
       width: 50%;
       background-color: white;
       box-shadow: 0px 4px 2px white;
       border-radius: 10px;
     }
+
     ::ng-deep .mat-form-field-wrapper {
       padding: 0;
     }
+
     ::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled,
     ::ng-deep .mat-form-field-outline {
       opacity: 0;
     }
+
     input::placeholder {
       padding: 0;
       border: none;
@@ -43,6 +57,7 @@
       background: #fff;
     }
   }
+
   .container_middle {
     padding: 20px;
     background-color: white;
@@ -52,14 +67,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
     .members {
       display: flex;
       align-items: baseline;
       gap: 3px;
+
       p {
         color: #8c9094;
         font-weight: 300px;
       }
+
       .circle {
         background-color: #f6f6f6;
         color: #8c9094;
@@ -67,14 +85,17 @@
         padding: 4px;
       }
     }
+
     .dropdown {
       ::ng-deep .mat-form-field-wrapper {
         padding: 0;
       }
+
       ::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled,
       ::ng-deep .mat-form-field-outline {
         opacity: 0;
       }
+
       ::ng-deep .mat-form-field-underline {
         opacity: 0;
       }
