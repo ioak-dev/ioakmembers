@@ -9,46 +9,12 @@ import { AppService } from 'src/app/app.service';
 })
 export class MembersComponent implements OnInit {
   @Input() membersList: any;
-  members: { title: string; subtitle: string; content: string; url: string }[] =
-    [
-      {
-        title: 'Name',
-        subtitle: 'Subtitle',
-        content: 'Content here',
-        url: 'https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png',
-      },
-      {
-        title: 'Name',
-        subtitle: 'Subtitle',
-        content: 'Content here',
-        url: 'https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png',
-      },
-      {
-        title: 'Name',
-        subtitle: 'Subtitle',
-        content: 'Content here',
-        url: 'https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png',
-      },
-      {
-        title: 'Name',
-        subtitle: 'Subtitle',
-        content: 'Content here',
-        url: 'https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png',
-      },
-      {
-        title: 'Name',
-        subtitle: 'Subtitle',
-        content: 'Content here',
-        url: 'https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png',
-      },
-    ];
+  
   constructor(private router: Router, private appService: AppService) {}
 
   ngOnInit(): void {}
 
   navigateToProfile(member:any) {
-    console.log('print');
-    // this.updateMember();
     this.router.navigate(['/profile-info'],{queryParams: member });
   }
 

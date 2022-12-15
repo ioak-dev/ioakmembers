@@ -10,6 +10,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 
 @Component({
@@ -34,7 +35,8 @@ export class LoginFormComponent implements OnInit {
     public dialog: MatDialog,
     @Optional() public dialogRef: MatDialogRef<LoginFormComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
-    private appService: AppService
+    private appService: AppService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +51,15 @@ export class LoginFormComponent implements OnInit {
     console.log(this.login);
     this.appService.signIn(this.login).subscribe((result) => {
       console.log(result);
+      sessionStorage.setItem('memberId',result.memberId)
+      sessionStorage.setItem('firstName',result.firstName)
+      sessionStorage.setItem('lastName',result.lastName)
+      sessionStorage.setItem('email',result.email)
+      sessionStorage.setItem('profilePic',result.profilePic)
+      sessionStorage.setItem('token',result.token)
+      this.router.navigate(['/member-list'])
     });
   }
 }
+
+

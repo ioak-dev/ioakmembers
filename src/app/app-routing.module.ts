@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { MemberEditComponent } from './member-edit/member-edit.component';
 import { InternListComponent } from './member-list/member-list.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 const routes: Routes = [
   { path: '', component: RegistrationFormComponent },
@@ -13,6 +16,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile-info', component: ProfileInfoComponent },
   { path: 'login', component: LoginFormComponent },
+  { path: 'unauthorized', component: UnauthorizedComponent },
+  { path: 'member/:id/edit', component: MemberEditComponent, canActivate: [AuthGuard]  },
+  // /login?redirect=/member/memberid/edit
 ];
 
 @NgModule({

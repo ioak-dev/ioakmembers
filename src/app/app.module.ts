@@ -44,6 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { FooterComponent } from './footer/footer.component';
+import { MemberEditComponent } from './member-edit/member-edit.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +57,8 @@ import { FooterComponent } from './footer/footer.component';
     LoginFormComponent,
     NavigationBarComponent,
     FooterComponent,
+    MemberEditComponent,
+    UnauthorizedComponent,
   ],
   imports: [
     BrowserModule,

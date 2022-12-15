@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginFormComponent } from '../login-form/login-form.component';
 
 @Component({
@@ -8,9 +9,25 @@ import { LoginFormComponent } from '../login-form/login-form.component';
   styleUrls: ['./navigation-bar.component.scss'],
 })
 export class NavigationBarComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  memberId: any;
+  user:any;
+  name: string;
+  constructor(
+    public dialog: MatDialog,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.route.queryParams.subscribe((params) => {
+      this.memberId = params['memberId'];
+      console.log(this.memberId);
+    });
+  }
 
-  ngOnInit():void{}
+  ngOnInit(): void {
+    const firstName=sessionStorage.getItem('firstName');
+    const lastName=sessionStorage.getItem('lastName');
+    this.name=firstName.charAt(0) + lastName.charAt(0);
+  }
 
   openModal() {
     const dialogConfig = new MatDialogConfig();
@@ -37,4 +54,12 @@ export class NavigationBarComponent implements OnInit {
     });
   }
   // }
+
+  editProfile() {
+    this.router.navigate([`/member/${this.memberId}/edit`]);
+  }
+
+  logout(){
+    sessionStorage.clear();
+  }
 }

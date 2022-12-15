@@ -4,7 +4,9 @@
     display: flex;
     justify-content: space-between;
     span {
-      color: white;
+      background-color: white;
+      border-radius: 50%;
+      padding: 5px 10px;
     }
     img{
       height: 30px;
