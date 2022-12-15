@@ -1,5 +1,5 @@
 <div class="login_container">
-  
+
   <app-navigation-bar></app-navigation-bar>
   <div class="login">
     <!-- <div class="login_header">
@@ -14,12 +14,7 @@
         <!-- <mat-label>Email</mat-label> -->
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input
-            type="text"
-            formControlName="email"
-            matInput
-            [(ngModel)]="login.email"
-          />
+          <input class="login-form__input" type="text" formControlName="email" [(ngModel)]="login.email" />
           <mat-error *ngIf="loginForm.get('email').hasError('pattern')">
             Invalid Email Address.
           </mat-error>
@@ -27,21 +22,10 @@
         <!-- <mat-label>Password</mat-label> -->
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input
-            type="password"
-            formControlName="password"
-            matInput
-            [(ngModel)]="login.password"
-          />
+          <input class="login-form__input" type="password" formControlName="password" [(ngModel)]="login.password" />
         </mat-form-field>
         <span><a routerLink="/register">New user? Register</a></span>
-        <button
-          type="submit"
-          class="loginButton"
-          color="primary"
-          mat-raised-button
-          [disabled]="loginForm.invalid"
-        >
+        <button type="submit" class="login-form__button" color="primary"  [disabled]="loginForm.invalid">
           Login
         </button>
       </form>
