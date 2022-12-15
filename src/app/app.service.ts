@@ -30,4 +30,10 @@ export class AppService {
       .post(`${this.baseurl}/member`, userObj, httpOptions)
       .pipe(map((response) => response));
   }
+
+  signIn(payload: any): Observable<any>{
+    return this.http
+    .post(`${this.baseurl}/auth/signin`, payload, httpOptions)
+    .pipe(map((response) => response));
+  }
 }
