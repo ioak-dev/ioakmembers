@@ -40,12 +40,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MembersComponent } from './member-list/members/members.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { HeadersInterceptor } from './headers.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,7 +97,11 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     MatDatepickerModule,
     MatNativeDateModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HeadersInterceptor,
+    multi: true
+}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
