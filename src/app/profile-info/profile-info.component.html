@@ -7,34 +7,32 @@
   </div>
   <!-- <div class="profile_image"> -->
   <div class="avatar" (mouseleave)="isShow = false">
-    <input
+    <!-- <input
       type="file"
       accept="image/*"
       (change)="editPic(file.files)"
       #file
       style="display: none"
-    />
+    /> -->
     <img
       *ngIf="user?.profilePic"
       [src]="user?.profilePic"
       alt="image"
-      (mouseenter)="isShow = true"
     />
     <img
       *ngIf="!user?.profilePic"
       src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg"
       alt="image"
-      (mouseenter)="isShow = true"
     />
-    <ng-container *ngIf="isShow">
+    <!-- <ng-container *ngIf="isShow">
       <span class="overlay">
         <mat-icon (click)="file.click()">edit</mat-icon>
         <mat-icon *ngIf="user.profilePic" (click)="deletePic()"
           >delete</mat-icon
         >
       </span>
-    </ng-container>
-    <div (mouseleave)="isShow = false">
+    </ng-container> -->
+    <div>
       <h2>{{ user?.firstName }} {{ user?.lastName }}</h2>
       <span class="status">{{ user?.status }}</span>
     </div>

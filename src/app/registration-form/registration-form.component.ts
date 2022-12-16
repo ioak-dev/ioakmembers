@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -23,22 +23,21 @@ export class RegistrationFormComponent implements OnInit {
     ),
     phoneNumber: new FormControl('', Validators.required),
     experienceSince: new FormControl('', Validators.required),
-    department: new FormControl('', Validators.required),
     jobTitle: new FormControl('', Validators.required),
     about: new FormControl('', Validators.required),
     profilePic: new FormControl(''),
   });
-  userDetails: any = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
-    experienceSince: '',
-    department: '',
-    jobTitle: '',
-    about: '',
-    profilePic: '',
-  };
+  // userDetails: any = {
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   phoneNumber: '',
+  //   experienceSince: '',
+  //   jobTitle: '',
+  //   about: '',
+  //   profilePic: '',
+  // };
+  @Input() userDetails:any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -48,9 +47,11 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {}
 
   updateProfile() {
-    this.appService.updateMember(this.userDetails).subscribe((result) => {
+    console.log(this.userDetails)
+    const id=this.userDetails._id
+    this.appService.editMember(id,this.userDetails).subscribe((result) => {
       console.log(result);
-      this.router.navigate(['/member-list']);
+      // this.router.navigate(['/member-list']);
     });
   }
 }

@@ -1,7 +1,5 @@
 <div class="main_container">
-  
-  <app-navigation-bar></app-navigation-bar>
-<div class="heading"> <h2>MEMBER REGISTRATION</h2></div> 
+  <!-- <div class="heading"> <h2>MEMBER REGISTRATION</h2></div>  -->
 
   <form
     [formGroup]="profileForm"
@@ -84,21 +82,7 @@
                   ></mat-error> -->
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Department</mat-label>
-          <input
-            type="text"
-            matInput
-            formControlName="department"
-            [(ngModel)]="userDetails.department"
-            placeholder="Department"
-          />
-          <!-- <mat-error
-                        app-error-validation
-                        [control]="profileForm.get('email')"
-                    ></mat-error> -->
-        </mat-form-field>
-        <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline">
           <mat-label>Job Title</mat-label>
           <input
             type="text"

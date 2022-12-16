@@ -10,6 +10,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 import { InitializationService } from '../initialization.service';
@@ -38,7 +39,8 @@ export class LoginFormComponent implements OnInit {
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     private appService: AppService,
     private router: Router,
-    private initializationService: InitializationService
+    private initializationService: InitializationService,
+    private snackBar: MatSnackBar,
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +61,14 @@ export class LoginFormComponent implements OnInit {
       sessionStorage.setItem('token', result.token);
       this.initializationService.loggedInUser$.next(result);
       this.router.navigate(['/member-list']);
+      this.showSnackbar();
     });
   }
+
+  showSnackbar() {
+    this.snackBar.open("Successfully logged In!", 'Ok', {
+        duration: 2000,
+        panelClass: 'success',
+    });
+}
 }

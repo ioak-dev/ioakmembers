@@ -24,9 +24,13 @@ export class ProfileInfoComponent implements OnInit {
       // this.getUser();
     });
 
-    this.route.queryParams.subscribe((params) => {
-      this.userId = params['_id'];
-      this.user = params;
+    // this.route.queryParams.subscribe((params) => {
+    //   this.userId = params['_id'];
+    //   this.user = params;
+    // });
+
+    this.route.paramMap.subscribe((params) => {
+      this.userId = params.get('id');
     });
   }
 
@@ -35,7 +39,7 @@ export class ProfileInfoComponent implements OnInit {
   }
 
   navigateToProfile(member: any) {
-    this.router.navigate(['/profile-info'], { queryParams: member });
+    this.router.navigate(['/member'], { queryParams: member });
   }
 
   navigateToLogin() {
@@ -43,8 +47,11 @@ export class ProfileInfoComponent implements OnInit {
   }
 
   getUser() {
+    // this.user = this.membersList.find(
+    //   (data: { _id: any }) => data._id === this.userId
+    // );
     this.user = this.membersList.find(
-      (data: { _id: any }) => data._id === this.userId
+      (data: { memberId: any }) => data.memberId == this.userId
     );
   }
 

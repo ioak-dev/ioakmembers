@@ -43,3 +43,22 @@
       }
     }
 }
+.overlay {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    width: 180px;
+    height: 80px;
+    background-color: rgb(0 0 0 / 60%);
+    border-bottom-left-radius: 110px;
+    border-bottom-right-radius: 110px;
+    border-bottom: 0;
+    bottom: 12px;
+    left: 10px;
+    mat-icon {
+      color: white;
+    }
+    animation: name duration timing-function delay iteration-count direction
+      fill-mode;
+  }

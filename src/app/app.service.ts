@@ -48,4 +48,11 @@ export class AppService {
       .pipe(map((response) => response));
   }
 
+  updatePicture(id: string, image: File): Observable<any> {
+    const file = new FormData();
+    file.append('image', image);
+    return this.http
+      .post(`${this.baseurl}/member/${id}/avatar`, file, httpOptions)
+      .pipe(map((response) => response));
+  }
 }

@@ -9,13 +9,6 @@ import { InitializationService } from '../initialization.service';
   styleUrls: ['./member-edit.component.scss'],
 })
 export class MemberEditComponent implements OnInit {
-  // user: any = {
-  //   firstName: '',
-  //   lastName: '',
-  //   memberId: '',
-  //   profilePic: '',
-  //   status: 'Active',
-  // };
   user: any;
   isShow = false;
   membersList: any;
@@ -77,5 +70,13 @@ export class MemberEditComponent implements OnInit {
 
   editPic(file: any) {
     console.log(file);
+    this.appService.updatePicture(this.user._id, file).subscribe(
+      (result) => {
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

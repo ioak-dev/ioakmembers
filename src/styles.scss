@@ -15,3 +15,11 @@ body {
     letter-spacing: 0px;
     line-height: 1.5;
 }
+
+.success {
+  color: white !important;
+  background-color: green !important;
+  .mat-simple-snackbar-action {
+      color: white !important;
+  }
+}
