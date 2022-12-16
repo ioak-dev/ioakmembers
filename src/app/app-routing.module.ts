@@ -10,7 +10,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 const routes: Routes = [
-  { path: '', component: RegistrationFormComponent },
+  { path: '', component: InternListComponent },
   { path: 'register', component: RegistrationFormComponent },
   { path: 'member-list', component: InternListComponent },
   { path: 'dashboard', component: DashboardComponent },

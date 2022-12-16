@@ -21,7 +21,7 @@ export class RegistrationFormComponent implements OnInit {
       '',
       Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')
     ),
-    phoneNumber: new FormControl('', Validators.required),
+    telephone: new FormControl('', Validators.required),
     experienceSince: new FormControl('', Validators.required),
     jobTitle: new FormControl('', Validators.required),
     about: new FormControl('', Validators.required),

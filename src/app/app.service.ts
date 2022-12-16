@@ -50,7 +50,7 @@ export class AppService {
 
   updatePicture(id: string, image: File): Observable<any> {
     const file = new FormData();
-    file.append('image', image);
+    file.append('file', image);
     return this.http
       .post(`${this.baseurl}/member/${id}/avatar`, file, httpOptions)
       .pipe(map((response) => response));

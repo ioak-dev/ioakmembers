@@ -47,6 +47,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { HeadersInterceptor } from './headers.interceptor';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,6 +97,9 @@ import { HeadersInterceptor } from './headers.interceptor';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    RouterModule.forRoot([
+      { path: "member-list", component: InternListComponent }
+    ], { useHash: true })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
