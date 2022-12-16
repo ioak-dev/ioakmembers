@@ -1,6 +1,9 @@
 .main_container{
     // width: 600px;
     // margin: 80px auto;
+    ::ng-deep .mat-toolbar{
+        background-color: #282733;
+      }
     .heading{
         padding: 50px;
         margin: 20px 0;

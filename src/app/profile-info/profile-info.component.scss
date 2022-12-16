@@ -1,5 +1,8 @@
 .profile_container {
   background-color: #f6f6f6;
+  ::ng-deep .mat-toolbar{
+    background-color: #282733;
+  }
   .profile_background {
     background-color: #00000099;
     opacity: 0.6;

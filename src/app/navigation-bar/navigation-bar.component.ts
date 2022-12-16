@@ -22,12 +22,12 @@ export class NavigationBarComponent implements OnInit {
   ) {
     this.route.queryParams.subscribe((params) => {
       this.memberId = params['memberId'];
-      console.log(this.memberId);
+      // console.log(this.memberId);
     });
 
     this.initializationService.loggedInUser$.subscribe((result) => {
       this.loggedInUser = result;
-      console.log(this.loggedInUser);
+      // console.log(this.loggedInUser);
     });
   }
 
@@ -37,38 +37,13 @@ export class NavigationBarComponent implements OnInit {
       this.loggedInUser?.lastName.charAt(0);
   }
 
-  openModal() {
-    const dialogConfig = new MatDialogConfig();
-
-    // dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.data = {
-      title: 'login',
-    };
-    dialogConfig.minWidth = 500;
-
-    const dialogRef = this.dialog.open(LoginFormComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe((result) => {
-      // if(result){
-      //   if(yes){
-      //     yes();
-      //   }
-      // }else{
-      //   if(no){
-      //     no();
-      //   }
-      // }
-    });
-  }
-  // }
-
   editProfile() {
-    this.router.navigate([`/member/${this.memberId}/edit`]);
+    this.router.navigate([`/member/${this.loggedInUser?.memberId}/edit`]);
   }
 
   logout() {
     sessionStorage.clear();
     this.initializationService.loggedInUser$.next(null);
+    this.router.navigate(['/member-list'])
   }
 }

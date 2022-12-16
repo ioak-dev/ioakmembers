@@ -25,6 +25,6 @@ export class InitializationService {
     } else {
       this.user = null;
     }
-    this.loggedInUser$ = new BehaviorSubject(this.user);
+    this.loggedInUser$.next(this.user);
   }
 }

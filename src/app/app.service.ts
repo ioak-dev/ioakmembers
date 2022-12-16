@@ -21,7 +21,6 @@ export class AppService {
   ) {
     this.route.queryParams.subscribe((params) => {
       this.memberId = params['memberId'];
-      console.log(this.memberId);
     });
   }
 
@@ -49,19 +48,4 @@ export class AppService {
       .pipe(map((response) => response));
   }
 
-  isLoggedIn() {
-    const id = sessionStorage.getItem('memberId');
-    console.log(this.memberId)
-    if(this.memberId===id){
-      this.loggedIn=true
-    }
-    else if(!id){
-      this.router.navigate(['/login']);
-    }
-    else{
-      this.loggedIn=false;
-      this.router.navigate(['/unauthorized']);
-    }
-    return this.loggedIn;
-  }
 }

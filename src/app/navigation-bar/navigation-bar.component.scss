@@ -8,9 +8,18 @@
   justify-content: space-between;
   span {
     background-color: white;
-    border-radius: 50%;
-    padding: 1px 5px;
-    font-size: 16px;
+    border: 1px solid #bababa;
+    border-radius: 32px;
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: uppercase;
+    width: 32px;
+    text-align: center;
+    line-height: 32px;
+    height: 32px;
+    cursor: pointer;
+    min-width: 32px;
+    min-height: 32px;
   }
   img {
     height: 30px;
@@ -23,5 +32,16 @@
   color: white;
 }
 .login {
-  width: 35px;
+  border: 1px solid #bababa;
+  border-radius: 32px;
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
+  width: 32px;
+  text-align: center;
+  line-height: 32px;
+  height: 32px;
+  cursor: pointer;
+  min-width: 32px;
+  min-height: 32px;
 }

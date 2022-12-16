@@ -2,14 +2,7 @@
 
   <app-navigation-bar></app-navigation-bar>
   <div class="login">
-    <!-- <div class="login_header">
-    <span
-      ><mat-icon style="float: right; cursor: pointer" *ngIf="data?.title" (click)="close()"
-        >close</mat-icon
-      ></span>
-      <button mat-raised-button>LOGIN</button>
-  </div> -->
-    <div class="login_fields">
+   <div class="login_fields">
       <form [formGroup]="loginForm" (ngSubmit)="signIn()">
         <!-- <mat-label>Email</mat-label> -->
         <mat-form-field appearance="outline">
