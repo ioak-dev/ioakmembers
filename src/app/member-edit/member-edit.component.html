@@ -6,7 +6,7 @@
       />
     </div>
     <!-- <div class="profile_image"> -->
-    <div class="avatar" (mouseleave)="isShow = false">
+    <div class="avatar">
       <input
         type="file"
         accept="image/*"
@@ -18,23 +18,18 @@
         *ngIf="user?.profilePic"
         [src]="user?.profilePic"
         alt="image"
-        (mouseenter)="isShow = true"
       />
       <img
         *ngIf="!user?.profilePic"
         src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg"
         alt="image"
-        (mouseenter)="isShow = true"
       />
-      <ng-container *ngIf="isShow">
+      <ng-container>
         <span class="overlay">
           <mat-icon (click)="file.click()">edit</mat-icon>
-          <mat-icon *ngIf="user.profilePic" (click)="deletePic()"
-            >delete</mat-icon
-          >
         </span>
       </ng-container>
-      <div (mouseleave)="isShow = false">
+      <div>
         <h2>{{ user?.firstName }} {{ user?.lastName }}</h2>
         <span class="status">{{ user?.status }}</span>
       </div>

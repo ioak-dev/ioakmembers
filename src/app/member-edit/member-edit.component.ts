@@ -10,7 +10,7 @@ import { InitializationService } from '../initialization.service';
 })
 export class MemberEditComponent implements OnInit {
   user: any;
-  isShow = false;
+  isShow = true;
   membersList: any;
   memberId: string;
   constructor(
