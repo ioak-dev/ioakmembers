@@ -13,6 +13,7 @@ export class MemberEditComponent implements OnInit {
   isShow = true;
   membersList: any;
   memberId: string;
+  fileData: File;
   constructor(
     private appService: AppService,
     private route: ActivatedRoute,
@@ -69,7 +70,7 @@ export class MemberEditComponent implements OnInit {
   }
 
   editPic(file: any) {
-    console.log(file);
+    this.fileData = file.target.files[0] as File;
     this.appService.updatePicture(this.user._id, file).subscribe(
       (result) => {
         console.log(result);

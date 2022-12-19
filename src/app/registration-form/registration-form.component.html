@@ -97,13 +97,23 @@
                     ></mat-error> -->
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>Image url</mat-label>
+          <mat-label>GitHub</mat-label>
           <input
             type="text"
             matInput
-            formControlName="profilePic"
-            [(ngModel)]="userDetails.profilePic"
-            placeholder="Image url"
+            formControlName="github"
+            [(ngModel)]="userDetails.github"
+            placeholder="Github link"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>LinkedIn</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="linkedin"
+            [(ngModel)]="userDetails.linkedin"
+            placeholder="LinkedIn link"
           />
         </mat-form-field>
         <mat-form-field appearance="outline">

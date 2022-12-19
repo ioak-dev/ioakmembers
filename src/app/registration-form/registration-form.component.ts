@@ -26,6 +26,8 @@ export class RegistrationFormComponent implements OnInit {
     jobTitle: new FormControl('', Validators.required),
     about: new FormControl('', Validators.required),
     profilePic: new FormControl(''),
+    linkedin:new FormControl(''),
+    github:new FormControl('')
   });
   // userDetails: any = {
   //   firstName: '',

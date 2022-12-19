@@ -38,10 +38,10 @@
     </div>
   </div>
   <!-- </div> -->
-  <div class="container_section">
+  <!-- <div class="container_section">
     <mat-icon>info</mat-icon>
     <span> INFO</span>
-  </div>
+  </div> -->
 
   <div class="info_section">
     <div class="info_left_section">
@@ -54,9 +54,29 @@
           <h3>Name</h3>
           <span>{{ user?.firstName }} {{ user?.lastName }}</span>
         </div>
+        <div class="info_details">
+          <h3>Email</h3>
+          <span>{{ user?.email }}</span>
+        </div>
+        <div class="info_details">
+          <h3>Phone</h3>
+          <span>{{ user?.telephone }}</span>
+        </div>
+        <div class="info_details">
+          <h3>Position</h3>
+          <span>{{ user?.jobTitle }}</span>
+        </div>
+        <div class="info_details">
+          <h3>About</h3>
+          <span>{{ user?.about }}</span>
+        </div>
+        <div class="info_details">
+          <h3>Experience Since</h3>
+          <span>{{ user?.experienceSince }}</span>
+        </div>
       </div>
 
-      <div class="detail">
+      <!-- <div class="detail">
         <div class="detail_header">
           <mat-icon>info</mat-icon>
           <span> Details</span>
@@ -70,11 +90,15 @@
             <h3>About</h3>
             <span>{{ user?.about }}</span>
           </div>
+          <div class="details_section">
+            <h3>Experience Since</h3>
+            <span>{{ user?.experienceSince }}</span>
+          </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
-    <div class="info_right_section">
+    <!-- <div class="info_right_section">
       <div class="signin">
         <mat-icon>assignment_ind</mat-icon>
         <a  routerLink="/login" style="cursor: pointer;" routerLinkActive="active">SIGN IN TO YOUR ACCOUNT</a>
@@ -127,6 +151,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

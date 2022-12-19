@@ -6,6 +6,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
+const options = {
+  headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }),
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -48,11 +52,11 @@ export class AppService {
       .pipe(map((response) => response));
   }
 
-  updatePicture(id: string, image: File): Observable<any> {
-    const file = new FormData();
-    file.append('file', image);
+  updatePicture(id: string, image: any): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', image);
     return this.http
-      .post(`${this.baseurl}/member/${id}/avatar`, file, httpOptions)
+      .post(`${this.baseurl}/member/${id}/avatar`, formData, options)
       .pipe(map((response) => response));
   }
 }
