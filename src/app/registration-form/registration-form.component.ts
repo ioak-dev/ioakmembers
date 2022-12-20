@@ -40,6 +40,7 @@ export class RegistrationFormComponent implements OnInit {
   //   profilePic: '',
   // };
   @Input() userDetails:any;
+  public monthAndYear: Date;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -55,5 +56,9 @@ export class RegistrationFormComponent implements OnInit {
       console.log(result);
       // this.router.navigate(['/member-list']);
     });
+  }
+
+  changeDate(event: any){
+    this.userDetails.experienceSince=event;
   }
 }

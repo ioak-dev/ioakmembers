@@ -71,9 +71,9 @@ export class MemberEditComponent implements OnInit {
 
   editPic(file: any) {
     this.fileData = file.target.files[0] as File;
-    this.appService.updatePicture(this.user._id, file).subscribe(
+    this.appService.updatePicture(this.user._id, this.fileData).subscribe(
       (result) => {
-        console.log(result);
+        this.user=result
       },
       (error) => {
         console.log(error);

@@ -6,9 +6,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
-const options = {
-  headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }),
-};
 
 @Injectable({
   providedIn: 'root',
@@ -56,7 +53,7 @@ export class AppService {
     const formData = new FormData();
     formData.append('file', image);
     return this.http
-      .post(`${this.baseurl}/member/${id}/avatar`, formData, options)
+      .post(`${this.baseurl}/member/${id}/avatar`, formData)
       .pipe(map((response) => response));
   }
 }

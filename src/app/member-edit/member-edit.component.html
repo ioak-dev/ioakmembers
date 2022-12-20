@@ -1,38 +1,34 @@
 <div class="profile_container">
-    <app-navigation-bar></app-navigation-bar>
-    <div class="profile_background">
-      <img
-        src="https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png"
-      />
+  <app-navigation-bar></app-navigation-bar>
+  <div class="profile_background">
+    <img
+      src="https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png"
+    />
+  </div>
+  <!-- <div class="profile_image"> -->
+  <div class="avatar">
+    <input
+      type="file"
+      accept="image/*"
+      (change)="editPic($event)"
+      #file
+      style="display: none"
+    />
+    <img *ngIf="user?.profilePic" [src]="user?.profilePic" alt="image" />
+    <img
+      *ngIf="!user?.profilePic"
+      src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg"
+      alt="image"
+    />
+    <ng-container>
+      <span class="overlay">
+        <mat-icon (click)="file.click()">edit</mat-icon>
+      </span>
+    </ng-container>
+    <div>
+      <h2>{{ user?.firstName }} {{ user?.lastName }}</h2>
+      <span class="status">{{ user?.status }}</span>
     </div>
-    <!-- <div class="profile_image"> -->
-    <div class="avatar">
-      <input
-        type="file"
-        accept="image/*"
-        (change)="editPic($event)"
-        #file
-        style="display: none"
-      />
-      <img
-        *ngIf="user?.profilePic"
-        [src]="user?.profilePic"
-        alt="image"
-      />
-      <img
-        *ngIf="!user?.profilePic"
-        src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg"
-        alt="image"
-      />
-      <ng-container>
-        <span class="overlay">
-          <mat-icon (click)="file.click()">edit</mat-icon>
-        </span>
-      </ng-container>
-      <div>
-        <h2>{{ user?.firstName }} {{ user?.lastName }}</h2>
-        <span class="status">{{ user?.status }}</span>
-      </div>
-    </div>
-    <app-registration-form [userDetails]="user"></app-registration-form>
+  </div>
+  <app-registration-form [userDetails]="user"></app-registration-form>
 </div>
