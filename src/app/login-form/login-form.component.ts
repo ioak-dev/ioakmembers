@@ -32,6 +32,7 @@ export class LoginFormComponent implements OnInit {
     ]),
     password: new FormControl('', Validators.required),
   });
+  isHideLogo=false;
 
   constructor(
     public dialog: MatDialog,

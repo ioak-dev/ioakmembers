@@ -54,7 +54,7 @@
     display: flex;
     justify-content: left;
     top: 200px;
-    left: 100px;
+    left: 150px;
     align-items: center;
     grid-gap: 35px;
     gap: 35px;
@@ -68,7 +68,7 @@
       height: 180px;
       width: 180px;
       border-radius: 50%;
-      border: 10px solid white;
+      border: 6px solid white;
     }
     .status {
       padding: 5px 10px;
@@ -107,6 +107,7 @@
         background-color: white;
         border-radius: 5px;
         box-shadow: 1px 2px 3px #0000000a;
+        padding: 10px;
         .info_header {
           display: flex;
           align-items: flex-end;

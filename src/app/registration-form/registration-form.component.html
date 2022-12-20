@@ -114,6 +114,16 @@
           />
         </mat-form-field>
         <mat-form-field appearance="outline">
+          <mat-label>Country</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="country"
+            [(ngModel)]="userDetails.country"
+            placeholder="Country"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>About You</mat-label>
           <textarea
             cols="6"
