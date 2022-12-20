@@ -22,33 +22,23 @@ export class MemberEditComponent implements OnInit {
     // this.route.queryParams.subscribe((params) => {
     //   this.memberId = params['id'];
     // });
-    // this.memberId = sessionStorage.getItem('memberId');
-    this.initializationService.loggedInUser$.subscribe((response)=>{
-      this.user=response;
-      this.memberId=this.user.memberId
+    this.initializationService.loggedInUser$.subscribe((response) => {
+      this.user = response;
+      this.memberId = this.user.memberId;
     });
     this.appService.members$.subscribe((result) => {
       this.membersList = result;
     });
-    if (!this.membersList) {
-      this.getAllMembers();
-    }
   }
 
-  ngOnInit(): void {}
-
-  getUser() {
-    this.user = this.membersList?.find(
-      (data: { memberId: any }) => data.memberId == this.memberId
-    );
+  ngOnInit() {
+    this.getMemberById();
   }
 
-  getAllMembers() {
-    this.appService.getAllMember().subscribe(
+  getMemberById() {
+    this.appService.getMemberById(this.memberId).subscribe(
       (result) => {
-        this.membersList = result;
-        this.getUser();
-        this.appService.members$.next(this.membersList);
+        this.user = result;
       },
       (error) => {
         console.log(error);
@@ -71,9 +61,9 @@ export class MemberEditComponent implements OnInit {
 
   editPic(file: any) {
     this.fileData = file.target.files[0] as File;
-    this.appService.updatePicture(this.user._id, file).subscribe(
+    this.appService.updatePicture(this.user._id, this.fileData).subscribe(
       (result) => {
-        console.log(result);
+        this.user = result;
       },
       (error) => {
         console.log(error);

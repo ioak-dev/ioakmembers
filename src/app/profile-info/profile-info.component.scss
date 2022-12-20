@@ -1,7 +1,43 @@
 .profile_container {
   background-color: #f6f6f6;
-  ::ng-deep .mat-toolbar {
-    background-color: #282733;
+  .container_header {
+    // padding: 30px;
+    height: 50vh;
+    // background-color: #fd507e;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(
+        111.3deg,
+        rgba(74, 105, 187, 0.9) 9.6%,
+        rgba(216, 68, 148, 0.4) 103.3%
+      ),
+      url(/assets/images/hero.svg);
+    background-image: linear-gradient(
+        111.3deg,
+        rgba(187, 74, 166, 0.6) 9.6%,
+        rgba(58, 102, 223, 0.4) 103.3%
+      ),
+      url(/assets/images/hero.svg);
+    background-image: linear-gradient(
+        111.3deg,
+        rgba(155, 167, 95, 0.6) 9.6%,
+        rgba(188, 99, 89, 0.4) 103.3%
+      ),
+      url(/assets/images/hero.svg);
+    // background-image: linear-gradient(111.3deg, rgba(187, 74, 166, 0.2) 9.6%, rgba(58, 102, 223, 0.2) 103.3%), url(/assets/images/hero.jpg);
+    color: #fff;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    // justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 56px;
+      letter-spacing: 2px;
+    }
   }
   .profile_background {
     background-color: #00000099;
@@ -17,8 +53,8 @@
     position: absolute;
     display: flex;
     justify-content: left;
-    top: 150px;
-    left: 100px;
+    top: 200px;
+    left: 150px;
     align-items: center;
     grid-gap: 35px;
     gap: 35px;
@@ -28,17 +64,29 @@
       font-weight: 500;
       margin: 0px;
     }
-    img {
+    .profile_img {
       height: 180px;
       width: 180px;
       border-radius: 50%;
-      border: 10px solid white;
+      border: 6px solid white;
     }
     .status {
       padding: 5px 10px;
       background-color: orangered;
       color: white;
       border-radius: 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      img {
+        height: 40px;
+        width: 40px;
+      }
+      .linkedin {
+        height: 25px;
+        width: 25px;
+      }
     }
   }
   //   }
@@ -59,6 +107,7 @@
         background-color: white;
         border-radius: 5px;
         box-shadow: 1px 2px 3px #0000000a;
+        padding: 10px;
         .info_header {
           display: flex;
           align-items: flex-end;
@@ -70,8 +119,9 @@
           padding: 20px 50px;
           display: grid;
           grid-template-columns: 200px 1fr;
-          color: #919191;
+          color: #000;
           font-size: 15px;
+          font: unset;
           h3 {
             min-width: 80px;
             font-weight: 500;

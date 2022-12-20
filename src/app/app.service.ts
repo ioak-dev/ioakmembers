@@ -8,9 +8,6 @@ import { environment } from '../environments/environment';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
-const options = {
-  headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }),
-};
 
 @Injectable({
   providedIn: 'root',
@@ -59,7 +56,19 @@ export class AppService {
     const formData = new FormData();
     formData.append('file', image);
     return this.http
-      .post(`${this.baseurl}/member/${id}/avatar`, formData, options)
+      .post(`${this.baseurl}/member/${id}/avatar`, formData)
+      .pipe(map((response) => response));
+  }
+
+  getMemberById(id: string): Observable<any> {
+    return this.http
+      .get(`${this.baseurl}/member/${id}`, httpOptions)
+      .pipe(map((response) => response));
+  }
+
+  getMemberByIdForEdit(id: string): Observable<any> {
+    return this.http
+      .get(`${this.baseurl}/member/${id}/edit`, httpOptions)
       .pipe(map((response) => response));
   }
 }

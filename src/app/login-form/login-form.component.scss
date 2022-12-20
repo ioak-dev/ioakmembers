@@ -22,6 +22,9 @@
     max-width: 90vw;
     // margin: auto;
     // background-color: #ffffff;
+    img{
+      height: 80px;
+    }
     .login_header {
       height: 200px;
       background-image: url(../../assets/images/geopattern.png);
@@ -79,6 +82,9 @@
   color: #fff;
   font-size: 16px;
   box-sizing: border-box;
+  &::placeholder {
+    color: #fff;
+}
 }
 
 .login-form__button {
@@ -91,8 +97,8 @@
   border: none;
   &:disabled {
     background-color: #e0e0e0;
-    color: #00000042;
-    opacity: 0.8;
+    color: #000000;
+    // opacity: 0.8;
     &:hover {
       background-color: #e0e0e0;
       color: #00000042;

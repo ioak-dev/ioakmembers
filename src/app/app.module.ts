@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { InternListComponent } from './member-list/member-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MonthpickerComponent } from './monthpicker/monthpicker.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -61,6 +62,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     MemberEditComponent,
     UnauthorizedComponent,
+    MonthpickerComponent
   ],
   imports: [
     BrowserModule,
