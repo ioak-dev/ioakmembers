@@ -19,23 +19,13 @@ export class ProfileInfoComponent implements OnInit {
     private appService: AppService,
     private router: Router
   ) {
-    this.appService.members$.subscribe((result) => {
-      this.membersList = result;
-      // this.getUser();
-    });
-
-    // this.route.queryParams.subscribe((params) => {
-    //   this.userId = params['_id'];
-    //   this.user = params;
-    // });
-
     this.route.paramMap.subscribe((params) => {
       this.userId = params.get('id');
     });
   }
 
   ngOnInit(): void {
-    this.getAllMembers();
+    this.getMemberById();
   }
 
   navigateToProfile(member: any) {
@@ -46,52 +36,22 @@ export class ProfileInfoComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  getUser() {
-    // this.user = this.membersList.find(
-    //   (data: { _id: any }) => data._id === this.userId
-    // );
-    this.user = this.membersList.find(
-      (data: { memberId: any }) => data.memberId == this.userId
-    );
-  }
-
-  getAllMembers() {
-    this.appService.getAllMember().subscribe(
-      (result) => {
-        console.log(result);
-        this.membersList = result;
-        this.appService.members$.next(this.membersList);
-        this.getUser();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
-  deletePic() {
-    console.log(this.user);
-    const memberObj = { ...this.user, profilePic: null };
-    this.appService.editMember(this.user._id, memberObj).subscribe(
-      (result) => {
-        console.log(result);
-        this.getAllMembers();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
-  editPic(file: any) {
-    console.log(file);
-  }
-
   changeActiveToolbar(activeTool: any) {
     this.activeToolbar = activeTool;
   }
 
   isActive(member: any): boolean {
     return member.status === 'Active';
+  }
+
+  getMemberById(){
+    this.appService.getMemberById(this.userId).subscribe(
+      (result) => {
+        this.user=result;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

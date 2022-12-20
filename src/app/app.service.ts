@@ -56,4 +56,16 @@ export class AppService {
       .post(`${this.baseurl}/member/${id}/avatar`, formData)
       .pipe(map((response) => response));
   }
+
+  getMemberById(id: string): Observable<any> {
+    return this.http
+      .get(`${this.baseurl}/member/${id}`, httpOptions)
+      .pipe(map((response) => response));
+  }
+
+  getMemberByIdForEdit(id: string): Observable<any> {
+    return this.http
+      .get(`${this.baseurl}/member/${id}/edit`, httpOptions)
+      .pipe(map((response) => response));
+  }
 }
