@@ -2,7 +2,7 @@
   <div class="container_header">
     <app-navigation-bar></app-navigation-bar>
   </div>
-<!-- <div class="profile_image"> -->
+  <!-- <div class="profile_image"> -->
   <div class="avatar" (mouseleave)="isShow = false">
     <!-- <input
       type="file"
@@ -15,11 +15,13 @@
       *ngIf="user?.profilePic"
       [src]="user?.profilePic"
       alt="image"
+      class="profile_img"
     />
     <img
       *ngIf="!user?.profilePic"
       src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg"
       alt="image"
+      class="profile_img"
     />
     <!-- <ng-container *ngIf="isShow">
       <span class="overlay">
@@ -31,7 +33,14 @@
     </ng-container> -->
     <div>
       <h2>{{ user?.firstName }} {{ user?.lastName }}</h2>
-      <span class="status">{{ user?.status }}</span>
+      <div class="logo">
+        <a *ngIf="user?.github" [href]="user?.github" target="_blank"
+          ><img src="../../assets/images/github_PNG58.png"
+        /></a>
+        <a *ngIf="user?.linkedin" [href]="user?.linkedin" target="_blank"
+          ><img class="linkedin" src="../../assets/images/linkedIn_PNG2.png"
+        /></a>
+      </div>
     </div>
   </div>
   <!-- </div> -->
@@ -69,7 +78,7 @@
         </div>
         <div class="info_details">
           <h3>Experience Since</h3>
-          <span>{{ user?.experienceSince }}</span>
+          <span>{{ experienceDate }}</span>
         </div>
       </div>
 
