@@ -34,11 +34,13 @@ export class NavigationBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.appService
-      .getMemberByIdForEdit(this.loggedInUser?.memberId)
-      .subscribe((data) => {
-        this.loggedInUser = data;
-      });
+    if (this.loggedInUser?.memberId) {
+      this.appService
+        .getMemberByIdForEdit(this.loggedInUser?.memberId)
+        .subscribe((data) => {
+          this.loggedInUser = data;
+        });
+    }
     this.name =
       this.loggedInUser?.firstName.charAt(0) +
       this.loggedInUser?.lastName.charAt(0);
