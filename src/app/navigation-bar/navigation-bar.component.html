@@ -13,9 +13,10 @@
   >
     <img src="../../assets/images/user.png" />
   </div>
-  <span *ngIf="loggedInUser" mat-button [matMenuTriggerFor]="menu">{{
-    name
-  }}</span>
+  <span *ngIf="loggedInUser" mat-button [matMenuTriggerFor]="menu">
+    <img class="avatar_image" *ngIf="!loggedInUser?.profilePic" src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg" />
+    <img class="avatar_image" *ngIf="loggedInUser?.profilePic" [src]="loggedInUser?.profilePic" >
+  </span>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="editProfile()">Edit profile</button>
     <button mat-menu-item (click)="logout()">Logout</button>
