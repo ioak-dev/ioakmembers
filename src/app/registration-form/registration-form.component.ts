@@ -22,7 +22,7 @@ export class RegistrationFormComponent implements OnInit {
       Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')
     ),
     telephone: new FormControl('', Validators.required),
-    experienceSince: new FormControl('', Validators.required),
+    experienceSince: new FormControl(''),
     jobTitle: new FormControl('', Validators.required),
     about: new FormControl('', Validators.required),
     profilePic: new FormControl(''),
