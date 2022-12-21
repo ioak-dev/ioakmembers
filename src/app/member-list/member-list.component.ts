@@ -28,7 +28,6 @@ export class InternListComponent implements OnInit {
   getAllMembers() {
     this.appService.getAllMember().subscribe(
       (result) => {
-        console.log(result);
         this.membersList = result;
         this.appService.members$.next(this.membersList);
         this.onStatusSelection();
@@ -51,7 +50,8 @@ export class InternListComponent implements OnInit {
 
   applySearch(value: Event): void {
     this.filteredMembersList = this.membersList.filter((val: any) =>
-      val.firstName.toLowerCase().includes(this.searchText)
+      val.firstName.toLowerCase().includes(this.searchText) ||
+      val.lastName.toLowerCase().includes(this.searchText)
     );
   }
 }

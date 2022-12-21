@@ -26,9 +26,9 @@ export class RegistrationFormComponent implements OnInit {
     jobTitle: new FormControl('', Validators.required),
     about: new FormControl('', Validators.required),
     profilePic: new FormControl(''),
-    linkedin:new FormControl(''),
-    github:new FormControl(''),
-    country:new FormControl('')
+    linkedin: new FormControl(''),
+    github: new FormControl(''),
+    country: new FormControl(''),
   });
   // userDetails: any = {
   //   firstName: '',
@@ -40,7 +40,7 @@ export class RegistrationFormComponent implements OnInit {
   //   about: '',
   //   profilePic: '',
   // };
-  @Input() userDetails:any;
+  @Input() userDetails: any;
   public monthAndYear: Date;
   constructor(
     private formBuilder: FormBuilder,
@@ -51,15 +51,14 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {}
 
   updateProfile() {
-    console.log(this.userDetails)
-    const id=this.userDetails._id
-    this.appService.editMember(id,this.userDetails).subscribe((result) => {
-      console.log(result);
-      // this.router.navigate(['/member-list']);
+    console.log(this.userDetails);
+    const id = this.userDetails._id;
+    this.appService.editMember(id, this.userDetails).subscribe((result) => {
+      this.router.navigate([`/member/${this.userDetails.memberId}`]);
     });
   }
 
-  changeDate(event: any){
-    this.userDetails.experienceSince=event;
+  changeDate(event: any) {
+    this.userDetails.experienceSince = event;
   }
 }
