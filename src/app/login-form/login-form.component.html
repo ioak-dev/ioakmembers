@@ -19,6 +19,7 @@
           <input class="login-form__input" type="password" formControlName="password" [(ngModel)]="login.password" placeholder="password" />
         </mat-form-field>
         <!-- <span><a routerLink="/register">New user? Register</a></span> -->
+        <span *ngIf="errorMessage" class="error">*{{errorMessage}}</span>
         <button type="submit" class="login-form__button" color="primary"  [disabled]="loginForm.invalid">
           Login
         </button>

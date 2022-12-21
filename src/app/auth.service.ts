@@ -9,6 +9,7 @@ export class AuthService {
   memberId: any;
   loggedIn: boolean = false;
   loggedInUser: any;
+  redirectUrl:any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -19,10 +20,10 @@ export class AuthService {
     });
   }
 
-  isLoggedIn(MemberId: any) {
+  isLoggedIn(MemberId: any,url:any) {
     const id = sessionStorage.getItem('memberId');
     if (!id) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login'], { queryParams: { returnUrl: url } });
     } else if (MemberId == id) {
       this.loggedIn = true;
     } else {

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InitializationService } from '../initialization.service';
 import { LoginFormComponent } from '../login-form/login-form.component';
@@ -21,7 +20,6 @@ export class NavigationBarComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private initializationService: InitializationService,
-    private snackBar: MatSnackBar,
   ) {
     this.route.queryParams.subscribe((params) => {
       this.memberId = params['memberId'];
@@ -49,13 +47,5 @@ export class NavigationBarComponent implements OnInit {
     sessionStorage.clear();
     this.initializationService.loggedInUser$.next(null);
     this.router.navigate(['/member-list'])
-    this.showSnackbar()
   }
-
-  showSnackbar() {
-    this.snackBar.open("Successfully logged out!", 'Ok', {
-        duration: 2000,
-        panelClass: 'success',
-    });
-}
 }
