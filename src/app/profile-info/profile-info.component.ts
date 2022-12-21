@@ -13,6 +13,7 @@ export class ProfileInfoComponent implements OnInit {
   user: any;
   isShow = false;
   activeToolbar: any = 'images';
+  experienceDate:any;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,6 +49,8 @@ export class ProfileInfoComponent implements OnInit {
     this.appService.getMemberById(this.userId).subscribe(
       (result) => {
         this.user=result;
+        const d = new Date(this.user.experienceSince);
+        this.experienceDate=d.getMonth()+1+" / "+d.getFullYear();
       },
       (error) => {
         console.log(error);

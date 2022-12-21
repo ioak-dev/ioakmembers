@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,6 +15,7 @@ export class NavigationBarComponent implements OnInit {
   user: any;
   name: string;
   loggedInUser: any;
+  @Input() isHideLogo: boolean=true;
   constructor(
     public dialog: MatDialog,
     private route: ActivatedRoute,
@@ -34,6 +35,7 @@ export class NavigationBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.loggedInUser)
     this.name =
       this.loggedInUser?.firstName.charAt(0) +
       this.loggedInUser?.lastName.charAt(0);
