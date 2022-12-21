@@ -37,6 +37,7 @@ export class LoginFormComponent implements OnInit {
   });
   isHideLogo = false;
   returnUrl: any;
+  errorMessage: any;
 
   constructor(
     public dialog: MatDialog,
@@ -59,19 +60,25 @@ export class LoginFormComponent implements OnInit {
   }
 
   signIn() {
-    this.appService.signIn(this.login).subscribe((result) => {
-      sessionStorage.setItem('memberId', result.memberId);
-      sessionStorage.setItem('firstName', result.firstName);
-      sessionStorage.setItem('lastName', result.lastName);
-      sessionStorage.setItem('email', result.email);
-      sessionStorage.setItem('profilePic', result.profilePic);
-      sessionStorage.setItem('token', result.token);
-      this.initializationService.loggedInUser$.next(result);
-      if (this.returnUrl) {
-        this.router.navigate([this.returnUrl]);
-      } else {
-        this.router.navigate(['/member-list']);
+    this.appService.signIn(this.login).subscribe(
+      (result) => {
+        sessionStorage.setItem('memberId', result.memberId);
+        sessionStorage.setItem('firstName', result.firstName);
+        sessionStorage.setItem('lastName', result.lastName);
+        sessionStorage.setItem('email', result.email);
+        sessionStorage.setItem('profilePic', result.profilePic);
+        sessionStorage.setItem('token', result.token);
+        this.initializationService.loggedInUser$.next(result);
+        if (this.returnUrl) {
+          this.router.navigate([this.returnUrl]);
+        } else {
+          this.router.navigate(['/member-list']);
+        }
+      },
+      (error) => {
+        console.log(error?.error?.error?.message)
+        this.errorMessage = error?.error?.error?.message;
       }
-    });
+    );
   }
 }
