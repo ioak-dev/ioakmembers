@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  Router,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
@@ -22,7 +23,8 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.auth.isLoggedIn((route.params['id']))) {
+    let url: string = state.url;
+    if (this.auth.isLoggedIn(route.params['id'],url)) {
       return true;
     } else {
       console.log('Not authorized');
