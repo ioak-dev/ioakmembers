@@ -10,7 +10,6 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -46,7 +45,6 @@ export class LoginFormComponent implements OnInit {
     private appService: AppService,
     private router: Router,
     private initializationService: InitializationService,
-    private snackBar: MatSnackBar,
     private route: ActivatedRoute
   ) {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -74,14 +72,6 @@ export class LoginFormComponent implements OnInit {
       } else {
         this.router.navigate(['/member-list']);
       }
-      this.showSnackbar();
-    });
-  }
-
-  showSnackbar() {
-    this.snackBar.open('Successfully logged In!', 'Ok', {
-      duration: 2000,
-      panelClass: 'success',
     });
   }
 }
