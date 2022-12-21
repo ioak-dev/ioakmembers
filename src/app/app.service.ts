@@ -1,9 +1,11 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, from, map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../environments/environment';
+import axios from 'axios';
+import { InitializationService } from './initialization.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -18,13 +20,20 @@ export class AppService {
   public members$ = new BehaviorSubject<any>(null);
   loggedIn: any = true;
   memberId: any;
+  private loggedInUser: any;
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private initializationService: InitializationService
   ) {
     this.route.queryParams.subscribe((params) => {
       this.memberId = params['memberId'];
+    });
+
+    this.initializationService.loggedInUser$.subscribe((result) => {
+      this.loggedInUser = result;
+      // console.log(this.loggedInUser);
     });
   }
 
@@ -55,9 +64,27 @@ export class AppService {
   updatePicture(id: string, image: any): Observable<any> {
     const formData = new FormData();
     formData.append('file', image);
-    return this.http
-      .post(`${this.baseurl}/member/${id}/avatar`, formData)
-      .pipe(map((response) => response));
+
+    const _httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }),
+    };
+    // return this.http
+    //   .post(`${this.baseurl}/member/${id}/avatar`, formData)
+    //   .pipe(map((response) => response));
+    // var formData = new FormData();
+    var imagefile = document.querySelector('#file');
+    // formData.append("file", image);
+    console.log(this.loggedInUser);
+    const out = axios.post(`${this.baseurl}/member/${id}/avatar`, formData, {
+      headers: {
+        'authorization': this.loggedInUser.token,
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    console.log(out);
+
+    return from(out);
   }
 
   getMemberById(id: string): Observable<any> {
