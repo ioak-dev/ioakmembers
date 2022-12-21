@@ -1,11 +1,26 @@
 <div class="container">
-<mat-card *ngFor="let member of membersList" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" >
+  <div *ngFor="let member of membersList" class="members-section__main__tile">
     <!-- <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       
     </mat-card-header> -->
     <!-- <img mat-card-image src="https://youzify.cera-theme.com/wp-content/plugins/youzify/includes/public/assets/images/geopattern.png" alt="Photo"> -->
-    <mat-card-content (click)="navigateToProfile(member)">
+
+    <img (click)="navigateToProfile(member)" *ngIf="member.profilePic" class="members-section__main__tile__img"
+      [src]="member.profilePic" />
+    <img (click)="navigateToProfile(member)" *ngIf="!member.profilePic"
+      src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg"
+      class="members-section__main__tile__img" />
+    <div class="members-section__main__tile__label">
+      <div class="members-section__main__tile__label__name">
+        {{member.firstName}} {{member.lastName}}
+      </div>
+      <div class="members-section__main__tile__label__role">
+        {{member.jobTitle || 'Community member'}}
+      </div>
+    </div>
+  </div>
+  <!-- <mat-card-content (click)="navigateToProfile(member)">
       <div class="avatar">
         <img *ngIf="member.profilePic" [src]="member.profilePic" alt="image">
         <img *ngIf="!member.profilePic" src="https://youzify.cera-theme.com/wp-content/uploads/avatars/3/3-bpfull.jpg" alt="image">
@@ -13,12 +28,12 @@
       <div class="name">
       <mat-card-title (click)="navigateToProfile(member)">{{member.firstName}}</mat-card-title>
       <mat-card-subtitle>{{member.jobTitle}}</mat-card-subtitle>
-    </div>
-    <!-- <div class="tools">
+    </div> -->
+  <!-- <div class="tools">
       <span><a href="https://www.linkedin.com/company/ioak/"><img src="../assets/images/linkedin-white.svg"></a></span>
       <span><a href="https://github.com/ioak-dev"><img src="../assets/images/github-white.svg"></a></span>
     </div> -->
-      
-    </mat-card-content>
-  </mat-card>
+
+  <!-- </mat-card-content> -->
 </div>
+<!-- </div> -->
