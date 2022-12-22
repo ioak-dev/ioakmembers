@@ -50,6 +50,10 @@ export class NavigationBarComponent implements OnInit {
     this.router.navigate([`/member/${this.loggedInUser?.memberId}/edit`]);
   }
 
+  changePassword(){
+    this.router.navigate(['/change-password']);
+  }
+
   logout() {
     sessionStorage.clear();
     this.initializationService.loggedInUser$.next(null);

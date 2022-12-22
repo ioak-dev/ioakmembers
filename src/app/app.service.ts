@@ -95,4 +95,22 @@ export class AppService {
       .get(`${this.baseurl}/member/${id}/edit`, httpOptions)
       .pipe(map((response) => response));
   }
+
+  forgotPassword(email: any): Observable<any> {
+    return this.http
+      .post(`${this.baseurl}/member/forgotpassword`, email, httpOptions)
+      .pipe(map((response) => response));
+  }
+
+  changePassword(password: any): Observable<any> {
+    console.log(this.loggedInUser.token);
+    return this.http
+      .post(`${this.baseurl}/auth/changepassword`, password, {
+        headers: {
+          'Authorization': this.loggedInUser.token,
+          'Content-Type': 'application/json',
+        },
+      })
+      .pipe(map((response) => response));
+  }
 }

@@ -35,9 +35,17 @@ export class LoginFormComponent implements OnInit {
     ]),
     password: new FormControl('', Validators.required),
   });
+  forgotPasswordForm: FormGroup = new FormGroup({
+    email: new FormControl('', [
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      Validators.required,
+    ]),
+  });
   isHideLogo = false;
   returnUrl: any;
   errorMessage: any;
+  isForgotPassword: boolean = false;
+  forgotPasswordEmail: any;
 
   constructor(
     public dialog: MatDialog,
@@ -59,6 +67,20 @@ export class LoginFormComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  openforgotPwd() {
+    this.isForgotPassword = true;
+  }
+
+  reset() {
+    const email = {
+      email: this.forgotPasswordEmail,
+    };
+    this.appService.forgotPassword(email).subscribe((result) => {
+      console.log(result);
+      this.router.navigate(['/login']);
+    });
+  }
+
   signIn() {
     this.appService.signIn(this.login).subscribe(
       (result) => {
@@ -76,7 +98,7 @@ export class LoginFormComponent implements OnInit {
         }
       },
       (error) => {
-        console.log(error?.error?.error?.message)
+        console.log(error?.error?.error?.message);
         this.errorMessage = error?.error?.error?.message;
       }
     );

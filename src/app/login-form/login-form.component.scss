@@ -25,49 +25,21 @@
     img{
       height: 80px;
     }
-    .login_header {
-      height: 200px;
-      background-image: url(../../assets/images/geopattern.png);
-      button {
-        position: relative;
-        top: 150px;
-        background-color: rgba(0, 0, 0, 0.42);
-        color: white;
-        left: 80px;
-      }
-    }
+
     form {
       display: flex;
       flex-direction: column;
       // margin: 20px;
-      span {
-        // text-align: end;
+      .forgot_password_link {
+        text-align: end;
         a {
           color: #ea3d56;
+          cursor: pointer;
         }
       }
     }
   }
-  .loginButton {
-    float: right;
-    width: 100%;
-    height: 55px;
-    background-color: #45b3e4;
-    margin: 50px 0;
-    font-size: 20px;
-    &:disabled {
-      background-color: #e0e0e0;
-      color: #00000042;
-      opacity: 0.8;
-      &:hover {
-        background-color: #e0e0e0;
-        color: #00000042;
-      }
-    }
-    &:hover {
-      background-color: #e42945;
-    }
-  }
+
 }
 
 .login-form__input {

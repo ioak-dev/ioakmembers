@@ -38,7 +38,7 @@ export class MemberEditComponent implements OnInit {
   }
 
   getMemberById() {
-    this.appService.getMemberById(this.memberId).subscribe(
+    this.appService.getMemberByIdForEdit(this.memberId).subscribe(
       (result) => {
         this.user = result;
       },

@@ -3,7 +3,11 @@
   <div class="login">
     <img src="../assets/images/ioak-logo.svg" />
     <div class="login_fields">
-      <form [formGroup]="loginForm" (ngSubmit)="signIn()">
+      <form
+        *ngIf="!isForgotPassword"
+        [formGroup]="loginForm"
+        (ngSubmit)="signIn()"
+      >
         <input
           class="login-form__input"
           type="text"
@@ -21,7 +25,7 @@
           [(ngModel)]="login.password"
           placeholder="password"
         />
-        <!-- <span><a routerLink="/register">New user? Register</a></span> -->
+        <span class="forgot_password_link"><a (click)="openforgotPwd()">Forgot password?</a></span>
         <span *ngIf="errorMessage" class="error">*{{ errorMessage }}</span>
         <button
           type="submit"
@@ -30,6 +34,27 @@
           [disabled]="loginForm.invalid"
         >
           Login
+        </button>
+      </form>
+      <form
+        *ngIf="isForgotPassword"
+        [formGroup]="forgotPasswordForm"
+        (ngSubmit)="reset()"
+      >
+        <input
+          class="login-form__input"
+          type="text"
+          formControlName="email"
+          [(ngModel)]="forgotPasswordEmail"
+          placeholder="email"
+        />
+        <button
+          type="submit"
+          class="login-form__button"
+          color="primary"
+          [disabled]="forgotPasswordForm.invalid"
+        >
+          Submit
         </button>
       </form>
     </div>

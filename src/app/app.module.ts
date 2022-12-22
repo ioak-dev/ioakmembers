@@ -49,6 +49,7 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { HeadersInterceptor } from './headers.interceptor';
 import { RouterModule } from '@angular/router';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     MemberEditComponent,
     UnauthorizedComponent,
-    MonthpickerComponent
+    MonthpickerComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: 'member/:id/edit', component: MemberEditComponent, canActivate: [AuthGuard]  },
+  { path: 'change-password', component: ChangePasswordComponent },
   // /login?redirect=/member/memberid/edit
 ];
 
