@@ -48,6 +48,7 @@
           [(ngModel)]="forgotPasswordEmail"
           placeholder="email"
         />
+        <span *ngIf="errorMessage" class="error">*{{ errorMessage }}</span>
         <button
           type="submit"
           class="login-form__button"

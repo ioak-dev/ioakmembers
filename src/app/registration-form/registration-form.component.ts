@@ -51,7 +51,6 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {}
 
   updateProfile() {
-    console.log(this.userDetails);
     const id = this.userDetails._id;
     this.appService.editMember(id, this.userDetails).subscribe((result) => {
       this.router.navigate([`/member/${this.userDetails.memberId}`]);

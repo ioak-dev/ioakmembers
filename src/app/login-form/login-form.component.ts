@@ -75,10 +75,15 @@ export class LoginFormComponent implements OnInit {
     const email = {
       email: this.forgotPasswordEmail,
     };
-    this.appService.forgotPassword(email).subscribe((result) => {
-      console.log(result);
-      this.router.navigate(['/login']);
-    });
+    this.appService.forgotPassword(email).subscribe(
+      (result) => {
+        this.isForgotPassword = false;
+        this.errorMessage=null;
+      },
+      (error) => {
+        if (error.status == 404) this.errorMessage = 'Enter valid email id';
+      }
+    );
   }
 
   signIn() {
