@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
+import { InitializationService } from '../initialization.service';
 
 @Component({
   selector: 'app-change-password',
@@ -20,7 +21,11 @@ export class ChangePasswordComponent {
     confirmPassword: new FormControl('', Validators.required),
   });
 
-  constructor(private appService: AppService,private router: Router,) {}
+  constructor(
+    private appService: AppService,
+    private router: Router,
+    private initializationService: InitializationService
+  ) {}
 
   reset() {
     if (this.checkPassword()) {
@@ -29,7 +34,7 @@ export class ChangePasswordComponent {
       };
       this.appService.changePassword(passwordObj).subscribe((result) => {
         console.log(result);
-        this.router.navigate(['/login']);
+        this.logout();
       });
     }
   }
@@ -43,5 +48,11 @@ export class ChangePasswordComponent {
       this.errorMessage = 'Password mismatch';
       return false;
     }
+  }
+
+  logout() {
+    sessionStorage.clear();
+    this.initializationService.loggedInUser$.next(null);
+    this.router.navigate(['/login']);
   }
 }
