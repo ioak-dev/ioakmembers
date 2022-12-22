@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppService } from '../app.service';
 import { InitializationService } from '../initialization.service';
 import { LoginFormComponent } from '../login-form/login-form.component';
 
@@ -14,12 +15,13 @@ export class NavigationBarComponent implements OnInit {
   user: any;
   name: string;
   loggedInUser: any;
-  @Input() isHideLogo: boolean=true;
+  @Input() isHideLogo: boolean = true;
   constructor(
     public dialog: MatDialog,
     private route: ActivatedRoute,
     private router: Router,
     private initializationService: InitializationService,
+    private appService: AppService
   ) {
     this.route.queryParams.subscribe((params) => {
       this.memberId = params['memberId'];
@@ -28,12 +30,17 @@ export class NavigationBarComponent implements OnInit {
 
     this.initializationService.loggedInUser$.subscribe((result) => {
       this.loggedInUser = result;
-      // console.log(this.loggedInUser);
     });
   }
 
   ngOnInit(): void {
-    console.log(this.loggedInUser)
+    if (this.loggedInUser?.memberId) {
+      this.appService
+        .getMemberByIdForEdit(this.loggedInUser?.memberId)
+        .subscribe((data) => {
+          this.loggedInUser = data;
+        });
+    }
     this.name =
       this.loggedInUser?.firstName.charAt(0) +
       this.loggedInUser?.lastName.charAt(0);
@@ -46,6 +53,6 @@ export class NavigationBarComponent implements OnInit {
   logout() {
     sessionStorage.clear();
     this.initializationService.loggedInUser$.next(null);
-    this.router.navigate(['/member-list'])
+    this.router.navigate(['/member-list']);
   }
 }

@@ -10,6 +10,7 @@ import { InitializationService } from '../initialization.service';
 })
 export class MemberEditComponent implements OnInit {
   user: any;
+  loggedInUser: any;
   isShow = true;
   membersList: any;
   memberId: string;
@@ -23,8 +24,9 @@ export class MemberEditComponent implements OnInit {
     //   this.memberId = params['id'];
     // });
     this.initializationService.loggedInUser$.subscribe((response) => {
-      this.user = response;
-      this.memberId = this.user.memberId;
+      console.log("26: ", response)
+      this.loggedInUser = response;
+      this.memberId = response.memberId;
     });
     this.appService.members$.subscribe((result) => {
       this.membersList = result;
@@ -63,6 +65,7 @@ export class MemberEditComponent implements OnInit {
     this.fileData = file.target.files[0] as File;
     this.appService.updatePicture(this.user._id, this.fileData).subscribe(
       (result) => {
+        this.initializationService.loggedInUser$.next({ ...this.loggedInUser, profilePic: result.data.profilePic });
         this.user = result.data;
       },
       (error) => {

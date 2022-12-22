@@ -7,8 +7,6 @@
   align-items: center;
   justify-content: space-between;
   span {
-    background-color: white;
-    border: 1px solid #bababa;
     border-radius: 32px;
     font-weight: normal;
     font-size: 14px;
@@ -24,6 +22,12 @@
   img {
     height: 30px;
   }
+  .avatar_image{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+  }
 }
 
 .menu {
@@ -32,7 +36,6 @@
   color: white;
 }
 .login {
-  border: 1px solid #bababa;
   border-radius: 32px;
   font-weight: normal;
   font-size: 14px;
@@ -44,4 +47,9 @@
   cursor: pointer;
   min-width: 32px;
   min-height: 32px;
+  img{
+    border-radius: 50%;
+    height: 30px;
+    border: 1px solid white;
+  }
 }

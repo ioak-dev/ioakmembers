@@ -72,17 +72,14 @@ export class AppService {
     //   .post(`${this.baseurl}/member/${id}/avatar`, formData)
     //   .pipe(map((response) => response));
     // var formData = new FormData();
-    var imagefile = document.querySelector('#file');
     // formData.append("file", image);
-    console.log(this.loggedInUser);
+    console.log(this.loggedInUser.token);
     const out = axios.post(`${this.baseurl}/member/${id}/avatar`, formData, {
       headers: {
         'authorization': this.loggedInUser.token,
         'Content-Type': 'multipart/form-data'
       }
     });
-
-    console.log(out);
 
     return from(out);
   }
