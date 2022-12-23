@@ -30,16 +30,6 @@ export class RegistrationFormComponent implements OnInit {
     github: new FormControl(''),
     country: new FormControl(''),
   });
-  // userDetails: any = {
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   phoneNumber: '',
-  //   experienceSince: '',
-  //   jobTitle: '',
-  //   about: '',
-  //   profilePic: '',
-  // };
   @Input() userDetails: any;
   public monthAndYear: Date;
   constructor(
