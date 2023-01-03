@@ -44,15 +44,23 @@ export class AppService {
   }
 
   editMember(id: string, userObj: any): Observable<any> {
-    return this.http
-      .put(`${this.baseurl}/member/${id}`, userObj, httpOptions)
-      .pipe(map((response) => response));
+    const out = axios.put(`${this.baseurl}/member/${id}`, userObj, {
+      headers: {
+        'authorization': this.loggedInUser.token,
+        'Content-Type': 'application/json'
+      }
+    })
+    return from(out).pipe(map((response) => response));
   }
 
   updateMember(userObj: any): Observable<any> {
-    return this.http
-      .post(`${this.baseurl}/member`, userObj, httpOptions)
-      .pipe(map((response) => response));
+    const out = axios.post(`${this.baseurl}/member`, userObj, {
+      headers: {
+        'authorization': this.loggedInUser.token,
+        'Content-Type': 'application/json'
+      }
+    });
+    return from(out);
   }
 
   signIn(payload: any): Observable<any> {
@@ -73,7 +81,6 @@ export class AppService {
     //   .pipe(map((response) => response));
     // var formData = new FormData();
     // formData.append("file", image);
-    console.log(this.loggedInUser.token);
     const out = axios.post(`${this.baseurl}/member/${id}/avatar`, formData, {
       headers: {
         'authorization': this.loggedInUser.token,
