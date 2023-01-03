@@ -75,6 +75,7 @@
       width: 180px;
       border-radius: 50%;
       border: 6px solid white;
+      object-fit: cover;
     }
     .status {
       padding: 5px 10px;
@@ -251,6 +252,7 @@
               border-radius: 50%;
               border: 10px solid white;
               cursor: pointer;
+              object-fit: cover;
             }
           }
         }

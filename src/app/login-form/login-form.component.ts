@@ -37,7 +37,7 @@ export class LoginFormComponent implements OnInit {
   });
   forgotPasswordForm: FormGroup = new FormGroup({
     email: new FormControl('', [
-      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
       Validators.required,
     ]),
   });
@@ -73,7 +73,7 @@ export class LoginFormComponent implements OnInit {
 
   reset() {
     const email = {
-      email: this.forgotPasswordEmail,
+      email: this.forgotPasswordEmail.toLowerCase().replace(/\s\s+/g, ' ').trim()
     };
     this.appService.forgotPassword(email).subscribe(
       (result) => {
@@ -81,7 +81,7 @@ export class LoginFormComponent implements OnInit {
         this.errorMessage=null;
       },
       (error) => {
-        if (error.status == 404) this.errorMessage = 'Enter valid email id';
+        if (error.status == 404) this.errorMessage = 'User with this E-mail not found!';
       }
     );
   }
