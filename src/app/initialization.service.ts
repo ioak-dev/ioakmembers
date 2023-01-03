@@ -15,13 +15,25 @@ export class InitializationService {
   };
   loggedInUser$ = new BehaviorSubject(null);
   constructor() {
+    this.loggedInUser$.subscribe((data) => {
+      this.user = data;
+    });
     if (sessionStorage.getItem('memberId')) {
-      this.user.firstName = sessionStorage.getItem('firstName');
-      this.user.lastName = sessionStorage.getItem('lastName');
-      this.user.email = sessionStorage.getItem('email');
-      this.user.profilePic = sessionStorage.getItem('profilePic');
-      this.user.memberId = sessionStorage.getItem('memberId');
-      this.user.token = sessionStorage.getItem('token');
+      let loggedInUser: any = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        profilePic: '',
+        memberId: '',
+        token: '',
+      };
+      loggedInUser.firstName = sessionStorage.getItem('firstName');
+      loggedInUser.lastName = sessionStorage.getItem('lastName');
+      loggedInUser.email = sessionStorage.getItem('email');
+      loggedInUser.profilePic = sessionStorage.getItem('profilePic');
+      loggedInUser.memberId = sessionStorage.getItem('memberId');
+      loggedInUser.token = sessionStorage.getItem('token');
+      this.user = { ...loggedInUser };
     } else {
       this.user = null;
     }
