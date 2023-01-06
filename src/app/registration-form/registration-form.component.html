@@ -67,7 +67,7 @@
                   ></mat-error> -->
         </mat-form-field>
 
-        <mat-form-field style="display: none;" appearance="outline">
+        <mat-form-field style="display: none" appearance="outline">
           <mat-label>Experience</mat-label>
           <input
             type="text"
@@ -78,7 +78,10 @@
           />
         </mat-form-field>
 
-        <app-monthpicker [(monthAndYear)]="userDetails.experienceSince" (changeDate)="changeDate($event)"></app-monthpicker>
+        <app-monthpicker
+          [(monthAndYear)]="userDetails.experienceSince"
+          (changeDate)="changeDate($event)"
+        ></app-monthpicker>
         <mat-form-field appearance="outline">
           <mat-label>Job Title</mat-label>
           <input
@@ -139,6 +142,13 @@
                         [control]="profileForm.get('email')"
                     ></mat-error> -->
         </mat-form-field>
+        <span
+          ><input  [checked]="isChecked" (change)='privacyChange()' type="checkbox" />
+          <label for="scales"
+            >I would like to make myself visible to people outside of this
+            community</label
+          ></span
+        >
       </div>
     </div>
     <div class="container_footer">

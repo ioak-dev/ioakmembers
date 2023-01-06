@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 import { AuthGuard } from './auth.guard';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: 'member/:id/edit', component: MemberEditComponent, canActivate: [AuthGuard]  },
   { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'admin', component:AdminPageComponent}
   // /login?redirect=/member/memberid/edit
 ];
 

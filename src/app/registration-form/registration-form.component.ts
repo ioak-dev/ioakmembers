@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -32,6 +33,7 @@ export class RegistrationFormComponent implements OnInit {
   });
   @Input() userDetails: any;
   public monthAndYear: Date;
+  isChecked=true;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -50,4 +52,20 @@ export class RegistrationFormComponent implements OnInit {
   changeDate(event: any) {
     this.userDetails.experienceSince = event;
   }
+
+  privacyChange(){
+    this.isChecked=!this.isChecked;
+    console.log(this.isChecked)
+  }
+
+  // onCheckboxChange(e) {
+  //   const website: FormArray = this.form.get('website') as FormArray;
+  
+  //   if (e.target.checked) {
+  //     website.push(new FormControl(e.target.value));
+  //   } else {
+  //      const index = website.controls.findIndex(x => x.value === e.target.value);
+  //      website.removeAt(index);
+  //   }
+  // }
 }

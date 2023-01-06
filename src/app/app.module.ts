@@ -50,6 +50,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { HeadersInterceptor } from './headers.interceptor';
 import { RouterModule } from '@angular/router';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +65,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     MemberEditComponent,
     UnauthorizedComponent,
     MonthpickerComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

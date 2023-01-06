@@ -19,6 +19,10 @@
         {{member.jobTitle || 'Community member'}}
       </div>
     </div>
+    <div class="members-section_tools">
+      <span matTooltip="Profile view count"><mat-icon> remove_red_eye </mat-icon>{{member.views}}</span>
+      <!-- <span matTooltip="Navigate to profile" (click)="navigateToProfile(member)"><mat-icon> subdirectory_arrow_right </mat-icon></span> -->
+    </div>
   </div>
   <!-- <mat-card-content (click)="navigateToProfile(member)">
       <div class="avatar">
