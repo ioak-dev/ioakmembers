@@ -9,6 +9,7 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
 import { InternListComponent } from './member-list/member-list.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { ResourcesComponent } from './resources/resources.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 const routes: Routes = [
@@ -20,9 +21,10 @@ const routes: Routes = [
   { path: 'member/:id', component: ProfileInfoComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
-  { path: 'member/:id/edit', component: MemberEditComponent, canActivate: [AuthGuard]  },
+  { path: 'member/:id/edit', component: MemberEditComponent, canActivate: [AuthGuard]},
   { path: 'change-password', component: ChangePasswordComponent },
-  { path: 'admin', component:AdminPageComponent}
+  { path: 'admin', component:AdminPageComponent},
+  { path: 'resources', component:ResourcesComponent, canActivate: [AuthGuard]}
   // /login?redirect=/member/memberid/edit
 ];
 

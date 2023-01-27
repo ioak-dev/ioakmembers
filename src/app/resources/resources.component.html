@@ -1,0 +1,28 @@
+<div class="container">
+    <app-navigation-bar></app-navigation-bar>
+    <div class="container_header"></div>
+    <div class="resources-container">
+        <div *ngFor="let item of resources">
+            <div class="title">
+                {{item.title}}
+            </div>
+            <!-- <pre>{{item.resources | json}}</pre> -->
+            <div class="resources-content">
+                <div class="icon">
+                    <img [src]="item.resources.icon" [alt]="item.resources.icon">
+                </div>
+                <div>
+                    <div class="desc">{{item.resources.description}}</div>
+                    <div class="link">
+                        <a [href]="item.resources.link" target="_blank">{{item.resources.link}}</a>                        
+                    </div>
+                </div>
+                <!-- <div class="book">
+                    <a [href]="item.resources.book" target="_blank">
+                        <img src="../../assets/icons/book.png" alt="book">
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

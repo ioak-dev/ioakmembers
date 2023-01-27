@@ -23,6 +23,7 @@
       "dom"
     ],
     "strictPropertyInitialization": false,
+    "resolveJsonModule": true,
     "strictNullChecks": false
   },
   "angularCompilerOptions": {
