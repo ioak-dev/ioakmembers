@@ -3,7 +3,7 @@
   <div class="menu">
     <!-- <a routerLink="/register" routerLinkActive="active" mat-button>Register</a> -->
     <a routerLink="/member-list" mat-button>Home</a>
-    <a routerLink="/resources" mat-button>Resources</a>
+    <a [routerLink]="[memberId,'/resources']" mat-button>Resources</a>
   </div>
   <div
     *ngIf="!loggedInUser"
