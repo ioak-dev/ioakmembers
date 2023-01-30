@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'member/:id/edit', component: MemberEditComponent, canActivate: [AuthGuard]},
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'admin', component:AdminPageComponent},
-  { path: ':id/resources', component:ResourcesComponent, canActivate: [AuthGuard]}
+  { path: 'resources/:id', component:ResourcesComponent, canActivate: [AuthGuard]}
   // /login?redirect=/member/memberid/edit
 ];
 
