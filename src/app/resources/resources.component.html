@@ -1,27 +1,18 @@
-<div class="container">
+<div class="resources-container">
     <app-navigation-bar></app-navigation-bar>
-    <div class="container_header"></div>
-    <div class="resources-container">
-        <div *ngFor="let item of resources">
-            <div class="title">
-                {{item.title}}
+    <div class="content">
+        <div class="settings-content">
+            <div class="left-section">
+                <mat-list role="list">
+                    <mat-list-item role="listitem" (click)="changeActivePage('tutorials')"
+                        [ngClass]="{ active: activePage === 'tutorials' }">Tutorials</mat-list-item>
+                    <mat-list-item role="listitem" (click)="changeActivePage('bookmarks')"
+                        [ngClass]="{ active: activePage === 'bookmarks' }">Bookmarks</mat-list-item>
+                </mat-list>
             </div>
-            <!-- <pre>{{item.resources | json}}</pre> -->
-            <div class="resources-content">
-                <div class="icon">
-                    <img [src]="item.resources.icon" [alt]="item.resources.icon">
-                </div>
-                <div>
-                    <div class="desc">{{item.resources.description}}</div>
-                    <div class="link">
-                        <a [href]="item.resources.link" target="_blank">{{item.resources.link}}</a>                        
-                    </div>
-                </div>
-                <!-- <div class="book">
-                    <a [href]="item.resources.book" target="_blank">
-                        <img src="../../assets/icons/book.png" alt="book">
-                    </a>
-                </div> -->
+            <div class="right-section">
+                <app-tutorials *ngIf="activePage === 'tutorials'"></app-tutorials>
+                <app-bookmarks *ngIf="activePage === 'bookmarks'"></app-bookmarks>
             </div>
         </div>
     </div>

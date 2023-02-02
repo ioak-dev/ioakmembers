@@ -1,0 +1,24 @@
+<div class="tutorials-container">
+    <div *ngFor="let item of tutorials">
+        <div class="title">
+            {{item.title}}
+        </div>
+        <!-- <pre>{{item.tutorials | json}}</pre> -->
+        <div class="tutorials-content">
+            <div class="icon">
+                <img [src]="item.tutorials.icon" [alt]="item.tutorials.icon">
+            </div>
+            <div>
+                <div class="desc">{{item.tutorials.description}}</div>
+                <div class="link">
+                    <a [href]="item.tutorials.link" target="_blank">{{item.tutorials.link}}</a>
+                </div>
+            </div>
+            <!-- <div class="book">
+                <a [href]="item.tutorials.book" target="_blank">
+                    <img src="../../assets/icons/book.png" alt="book">
+                </a>
+            </div> -->
+        </div>
+    </div>
+</div>

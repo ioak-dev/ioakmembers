@@ -1,0 +1,51 @@
+.tutorials-container {
+  margin: 0 auto;
+  max-width: 800px;
+  .title {
+    color: #bcbcbc;
+    padding: 0 0 0 20px;
+    margin: 20px 0;
+  }
+  .tutorials-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px #ddd;
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    align-items: center;
+    .icon {
+      width: 50px;
+      word-break: break-all;
+      img {
+        height: 50px;
+        object-fit: contain;
+        border-radius: 6px;
+      }
+    }
+    .desc {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 0 5px 0;
+    }
+    .link {
+      color: grey;
+      text-decoration: underline;
+      cursor: pointer;
+      word-break: break-all;
+      &:hover {
+        color: deepskyblue;
+      }
+    }
+    .book {
+      word-break: break-all;
+      align-self: flex-end;
+      img {
+        width: 30px;
+        object-fit: contain;
+        border-radius: 6px;
+      }
+    }
+  }
+}

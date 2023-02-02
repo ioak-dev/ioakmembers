@@ -52,6 +52,8 @@ import { RouterModule } from '@angular/router';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { TutorialsComponent } from './resources/tutorials/tutorials.component';
+import { BookmarksComponent } from './resources/bookmarks/bookmarks.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +70,9 @@ import { ResourcesComponent } from './resources/resources.component';
     MonthpickerComponent,
     ChangePasswordComponent,
     AdminPageComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    TutorialsComponent,
+    BookmarksComponent
   ],
   imports: [
     BrowserModule,
