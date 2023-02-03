@@ -1,0 +1,39 @@
+<div class="articles-container">
+    <app-navigation-bar></app-navigation-bar>
+    <div class="content">
+        <div class="articles-content">
+            <div class="left-section">
+                <div class="left-section-content">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Title</mat-label>
+                        <input matInput [(ngModel)]="article.title">
+                    </mat-form-field>
+                    <quill-editor #editor [modules]="quillConfig" [(ngModel)]="article.description"></quill-editor>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="right-section-content">
+                    <div class="button-wrapper">
+                        <button mat-raised-button (click)="cancel()">Cancel</button>
+                        <button mat-raised-button color="primary" (click)="save()"
+                            [disabled]="article.title === '' || article.description === ''">Save</button>
+                    </div>
+                    <mat-form-field class="example-chip-list" appearance="fill">
+                        <mat-label>Tags</mat-label>
+                        <mat-chip-list #chipList aria-label="Fruit selection">
+                            <mat-chip *ngFor="let tag of article.tags" (removed)="removeTag(tag)">
+                                {{tag}}
+                                <button matChipRemove>
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip>
+                            <input placeholder="New tag..." [matChipInputFor]="chipList"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                                (matChipInputTokenEnd)="addTag($event)">
+                        </mat-chip-list>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

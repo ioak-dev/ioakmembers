@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { CreateEditArticleComponent } from './articles/create-edit-article/create-edit-article.component';
 import { AuthGuard } from './auth.guard';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -24,7 +26,9 @@ const routes: Routes = [
   { path: 'member/:id/edit', component: MemberEditComponent, canActivate: [AuthGuard]},
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'admin', component:AdminPageComponent},
-  { path: 'resources/:id', component:ResourcesComponent}
+  { path: 'resources/:id', component:ResourcesComponent, canActivate: [AuthGuard]},
+  { path: 'articles/:id', component:ArticlesComponent, canActivate: [AuthGuard]},
+  { path: 'article/create', component:CreateEditArticleComponent, canActivate: [AuthGuard]}
   // /login?redirect=/member/memberid/edit
 ];
 

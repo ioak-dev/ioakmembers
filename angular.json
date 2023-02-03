@@ -32,9 +32,13 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/quill/dist/quill.core.css",
+              "./node_modules/quill/dist/quill.snow.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/quill/dist/quill.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -74,7 +78,7 @@
           "options": {
             "browserTarget": "member-registration:build",
             "port": 4220
-        },
+          },
           "configurations": {
             "production": {
               "browserTarget": "member-registration:build:production"

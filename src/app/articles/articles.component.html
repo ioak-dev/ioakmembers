@@ -1,0 +1,56 @@
+<div class="articles-container">
+    <app-navigation-bar></app-navigation-bar>
+    <div class="content">
+        <div class="articles-content">
+            <button mat-raised-button color="primary" (click)="navigateToCreateArticle()">Create Article</button>
+            <div class="featured-post">
+                <img class="thumbnail" [src]="featuredPost.thumbnail || '../../assets/images/article-img.png'" alt="">
+                <div>
+                    <span class="tag">{{featuredPost.tags}}</span> <span class="dot"></span> <span
+                        class="date">{{currentDate | date:'longDate'}}</span>
+                    <h3>{{featuredPost.title}}</h3>
+                    <p>{{featuredPost.description}}</p>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let item of featuredPost.tags">
+                            {{item}}
+                        </mat-chip>
+                    </mat-chip-list>
+                    <div class="author-wrapper">
+                        <img class="author-img" [src]="featuredPost.author.img" alt="">
+                        <div class="author-info-wrapper">
+                            <div class="author-name">{{featuredPost.author.name}}</div>
+                            <div class="author-position">{{featuredPost.author.position}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="posts">
+                <div class="posts-list">
+                    <div class="posts-item" *ngFor="let post of articles | slice:1">
+                        <img class="thumbnail" [src]="post.thumbnail" alt="">
+                        <div>
+                            <span class="tag">{{post.tags}}</span>
+                            <span class="dot"></span>
+                            <span class="date">{{currentDate | date:'longDate'}}</span>
+                            <h3>{{post.title}}</h3>
+                            <p>{{post.description}}</p>
+                            <mat-chip-list>
+                                <mat-chip *ngFor="let item of post.tags">
+                                    {{item}}
+                                </mat-chip>
+                            </mat-chip-list>
+
+                            <div class="author-wrapper">
+                                <img class="author-img" [src]="post.author.img" alt="">
+                                <div class="author-info-wrapper">
+                                    <div class="author-name">{{post.author.name}}</div>
+                                    <div class="author-position">{{post.author.position}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

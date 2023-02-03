@@ -54,6 +54,9 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { TutorialsComponent } from './resources/tutorials/tutorials.component';
 import { BookmarksComponent } from './resources/bookmarks/bookmarks.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { CreateEditArticleComponent } from './articles/create-edit-article/create-edit-article.component';
+import { QuillModule } from 'ngx-quill';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +75,9 @@ import { BookmarksComponent } from './resources/bookmarks/bookmarks.component';
     AdminPageComponent,
     ResourcesComponent,
     TutorialsComponent,
-    BookmarksComponent
+    BookmarksComponent,
+    ArticlesComponent,
+    CreateEditArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -109,6 +114,7 @@ import { BookmarksComponent } from './resources/bookmarks/bookmarks.component';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    QuillModule.forRoot(),
     RouterModule.forRoot([
       { path: "member-list", component: InternListComponent }
     ], { useHash: true })
