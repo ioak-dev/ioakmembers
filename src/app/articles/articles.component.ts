@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { InitializationService } from '../initialization.service';
 import { IArticle } from './article.interface';
 import { ArticlesService } from './articles.service';
 
@@ -9,6 +10,7 @@ import { ArticlesService } from './articles.service';
   styleUrls: ['./articles.component.scss']
 })
 export class ArticlesComponent implements OnInit {
+  loggedInUser: any;
   articles: IArticle[] = [{
     "title": "semper nostra viverra tellus class aenean litora cubilia lobortis dictumst leo vehicula dui ac",
     "thumbnail": "",
@@ -63,8 +65,13 @@ export class ArticlesComponent implements OnInit {
 
   featuredPost: any;
   currentDate = new Date();
-  constructor(private router: Router, private articlesService: ArticlesService) {
+  constructor(private router: Router,
+    private initializationService: InitializationService,
+    private articlesService: ArticlesService) {
     this.featuredPost = this.articles[0];
+    this.initializationService.loggedInUser$.subscribe((result) => {
+      this.loggedInUser = result;
+    });
   }
 
   ngOnInit() {
@@ -79,6 +86,6 @@ export class ArticlesComponent implements OnInit {
   }
 
   navigateToCreateArticle() {
-    this.router.navigate([`/article/create`]);
+    this.router.navigate([`/article/create/${this.loggedInUser?.memberId}`]);
   }
 }

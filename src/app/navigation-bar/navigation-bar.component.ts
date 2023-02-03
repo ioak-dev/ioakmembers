@@ -26,11 +26,11 @@ export class NavigationBarComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       this.memberId = params['memberId'];
       // console.log(this.memberId);
-    });
+      });
 
-    this.initializationService.loggedInUser$.subscribe((result) => {
-      this.loggedInUser = result;
-    });
+      this.initializationService.loggedInUser$.subscribe((result) => {
+        this.loggedInUser = result;
+      });
   }
 
   ngOnInit(): void {
