@@ -7,6 +7,7 @@ import { AuthGuard } from './auth.guard';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { LoginGuard } from './login.guard';
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { InternListComponent } from './member-list/member-list.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
@@ -26,9 +27,9 @@ const routes: Routes = [
   { path: 'member/:id/edit', component: MemberEditComponent, canActivate: [AuthGuard]},
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'admin', component:AdminPageComponent},
-  { path: 'resources/:id', component:ResourcesComponent, canActivate: [AuthGuard]},
-  { path: 'articles/:id', component:ArticlesComponent, canActivate: [AuthGuard]},
-  { path: 'article/create/:id', component:CreateEditArticleComponent, canActivate: [AuthGuard]}
+  { path: 'resources/:id', component:ResourcesComponent, canActivate: [LoginGuard]},
+  { path: 'articles/:id', component:ArticlesComponent, canActivate: [LoginGuard]},
+  { path: 'article/create/:id', component:CreateEditArticleComponent, canActivate: [LoginGuard]}
   // /login?redirect=/member/memberid/edit
 ];
 
