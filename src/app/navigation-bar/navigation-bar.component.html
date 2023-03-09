@@ -4,7 +4,7 @@
     <!-- <a routerLink="/register" routerLinkActive="active" mat-button>Register</a> -->
     <a routerLink="/member-list" mat-button>Home</a>
     <a [routerLink]="['/resources', loggedInUser?.memberId]" mat-button>Resources</a>
-    <a [routerLink]="['/articles', loggedInUser?.memberId]" mat-button>Articles</a>
+    <!-- <a [routerLink]="['/articles', loggedInUser?.memberId]" mat-button>Articles</a> -->
   </div>
   <div
     *ngIf="!loggedInUser"
