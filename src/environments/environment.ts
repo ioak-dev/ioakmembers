@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:4000/api"
+  apiUrl: "http://localhost:4000/api",
+  authliteApiUrl:"http://localhost:4010/api",
+  realm:"212",
+  apiKey:"5006dc69-de0b-42c5-8285-fe0310da0d5f"
 };
 
 /*

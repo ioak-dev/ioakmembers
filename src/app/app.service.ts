@@ -17,6 +17,7 @@ const httpOptions = {
 export class AppService {
   // baseurl = 'http://localhost:4000/api';
   baseurl = environment.apiUrl;
+  baseAuthliteUrl=environment.authliteApiUrl;
   public members$ = new BehaviorSubject<any>(null);
   loggedIn: any = true;
   memberId: any;
@@ -65,7 +66,8 @@ export class AppService {
 
   signIn(payload: any): Observable<any> {
     return this.http
-      .post(`${this.baseurl}/auth/signin`, payload, httpOptions)
+    .post(`${this.baseAuthliteUrl}/${environment.realm}/user/auth/signin`, {...payload,response_type:"token"}, httpOptions)
+      // .post(`${this.baseurl}/auth/signin`, payload, httpOptions)
       .pipe(map((response) => response));
   }
 
