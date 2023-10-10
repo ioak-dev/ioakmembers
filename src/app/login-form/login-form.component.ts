@@ -89,13 +89,13 @@ export class LoginFormComponent implements OnInit {
   signIn() {
     this.appService.signIn(this.login).subscribe(
       (result) => {
-        sessionStorage.setItem('memberId', result.memberId);
-        sessionStorage.setItem('firstName', result.firstName);
-        sessionStorage.setItem('lastName', result.lastName);
-        sessionStorage.setItem('email', result.email);
-        sessionStorage.setItem('profilePic', result.profilePic);
-        sessionStorage.setItem('token', result.token);
-        this.initializationService.loggedInUser$.next(result);
+        sessionStorage.setItem('memberId', result.claims.user_id);
+        sessionStorage.setItem('firstName', result.claims.given_name);
+        sessionStorage.setItem('lastName', result.claims.family_name);
+        sessionStorage.setItem('email', result.claims.email);
+        // sessionStorage.setItem('profilePic', result.profilePic);
+        sessionStorage.setItem('token', result.access_token);
+        this.initializationService.loggedInUser$.next({...result.claims,token:result.access_token});
         if (this.returnUrl) {
           this.router.navigate([this.returnUrl]);
         } else {

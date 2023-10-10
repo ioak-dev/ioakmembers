@@ -107,14 +107,13 @@ export class AppService {
 
   forgotPassword(email: any): Observable<any> {
     return this.http
-      .post(`${this.baseurl}/member/forgotpassword`, email, httpOptions)
+      .post(`${this.baseAuthliteUrl}/${environment.realm}/member/forgotpassword`, email, httpOptions)
       .pipe(map((response) => response));
   }
 
   changePassword(password: any): Observable<any> {
-    console.log(this.loggedInUser.token);
     return this.http
-      .post(`${this.baseurl}/auth/changepassword`, password, {
+      .post(`${this.baseAuthliteUrl}/${environment.realm}/user/auth/change-password`, password, {
         headers: {
           'Authorization': this.loggedInUser.token,
           'Content-Type': 'application/json',

@@ -12,13 +12,13 @@ import { InitializationService } from '../initialization.service';
 export class ChangePasswordComponent {
   errorMessage: any;
   changePassword = {
+    oldPassword: '',
     newPassword: '',
-    confirmPassword: '',
   };
 
   changePasswordForm: FormGroup = new FormGroup({
+    oldPassword: new FormControl('', Validators.required),
     newPassword: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required),
   });
 
   constructor(
@@ -28,27 +28,25 @@ export class ChangePasswordComponent {
   ) {}
 
   reset() {
-    if (this.checkPassword()) {
-      const passwordObj = {
-        password: this.changePassword.confirmPassword,
-      };
+    // if (this.checkPassword()) {
+      const passwordObj = this.changePassword;
       this.appService.changePassword(passwordObj).subscribe((result) => {
         console.log(result);
         this.logout();
       });
-    }
+    // }
   }
 
-  checkPassword() {
-    if (
-      this.changePassword.newPassword === this.changePassword.confirmPassword
-    ) {
-      return true;
-    } else {
-      this.errorMessage = 'Password mismatch';
-      return false;
-    }
-  }
+  // checkPassword() {
+  //   if (
+  //     this.changePassword.newPassword === this.changePassword.confirmPassword
+  //   ) {
+  //     return true;
+  //   } else {
+  //     this.errorMessage = 'Password mismatch';
+  //     return false;
+  //   }
+  // }
 
   logout() {
     sessionStorage.clear();
