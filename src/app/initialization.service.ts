@@ -10,7 +10,7 @@ export class InitializationService {
     lastName: '',
     email: '',
     profilePic: '',
-    memberId: '',
+    user_id: '',
     token: '',
   };
   loggedInUser$ = new BehaviorSubject(null);
@@ -24,14 +24,14 @@ export class InitializationService {
         lastName: '',
         email: '',
         profilePic: '',
-        memberId: '',
+        user_id: '',
         token: '',
       };
-      loggedInUser.firstName = sessionStorage.getItem('firstName');
-      loggedInUser.lastName = sessionStorage.getItem('lastName');
+      loggedInUser.name = sessionStorage.getItem('name');
+      loggedInUser.family_name = sessionStorage.getItem('family_name');
       loggedInUser.email = sessionStorage.getItem('email');
       loggedInUser.profilePic = sessionStorage.getItem('profilePic');
-      loggedInUser.memberId = sessionStorage.getItem('memberId');
+      loggedInUser.user_id = sessionStorage.getItem('memberId');
       loggedInUser.token = sessionStorage.getItem('token');
       this.user = { ...loggedInUser };
     } else {

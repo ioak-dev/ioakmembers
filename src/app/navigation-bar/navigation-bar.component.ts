@@ -11,7 +11,7 @@ import { LoginFormComponent } from '../login-form/login-form.component';
   styleUrls: ['./navigation-bar.component.scss'],
 })
 export class NavigationBarComponent implements OnInit {
-  memberId: any;
+  memberid: any;
   user: any;
   name: string;
   loggedInUser: any;
@@ -24,8 +24,7 @@ export class NavigationBarComponent implements OnInit {
     private appService: AppService
   ) {
     this.route.queryParams.subscribe((params) => {
-      this.memberId = params['memberId'];
-      // console.log(this.memberId);
+      this.memberid = params['memberId'];
       });
 
       this.initializationService.loggedInUser$.subscribe((result) => {
@@ -34,9 +33,11 @@ export class NavigationBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.loggedInUser?.memberId) {
+    if (this.loggedInUser?.user_id
+      ) {
       this.appService
-        .getMemberByIdForEdit(this.loggedInUser?.memberId)
+        .getMemberByIdForEdit(this.loggedInUser?.user_id
+          )
         .subscribe((data) => {
           this.loggedInUser = data;
         });
@@ -47,7 +48,7 @@ export class NavigationBarComponent implements OnInit {
   }
 
   editProfile() {
-    this.router.navigate([`/member/${this.loggedInUser?.memberId}/edit`]);
+    this.router.navigate([`/member/${this.loggedInUser?.user_id}/edit`]);
   }
 
   changePassword(){

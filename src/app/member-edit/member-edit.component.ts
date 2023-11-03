@@ -26,6 +26,7 @@ export class MemberEditComponent implements OnInit {
     this.initializationService.loggedInUser$.subscribe((response) => {
       console.log("26: ", response)
       this.loggedInUser = response;
+      this.user=this.loggedInUser;
       this.memberId = response.memberId;
     });
     this.appService.members$.subscribe((result) => {
@@ -40,7 +41,7 @@ export class MemberEditComponent implements OnInit {
   getMemberById() {
     this.appService.getMemberByIdForEdit(this.memberId).subscribe(
       (result) => {
-        this.user = result;
+        // this.user = result;
       },
       (error) => {
         console.log(error);

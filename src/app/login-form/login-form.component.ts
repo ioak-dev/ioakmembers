@@ -90,8 +90,8 @@ export class LoginFormComponent implements OnInit {
     this.appService.signIn(this.login).subscribe(
       (result) => {
         sessionStorage.setItem('memberId', result.claims.user_id);
-        sessionStorage.setItem('firstName', result.claims.given_name);
-        sessionStorage.setItem('lastName', result.claims.family_name);
+        sessionStorage.setItem('name', result.claims.name);
+        sessionStorage.setItem('family_name', result.claims.family_name);
         sessionStorage.setItem('email', result.claims.email);
         // sessionStorage.setItem('profilePic', result.profilePic);
         sessionStorage.setItem('token', result.access_token);
