@@ -20,7 +20,7 @@
                     </div>
                     <mat-form-field class="example-chip-list" appearance="fill">
                         <mat-label>Tags</mat-label>
-                        <mat-chip-list #chipList aria-label="Fruit selection">
+                        <mat-chip-grid #chipList aria-label="Fruit selection">
                             <mat-chip *ngFor="let tag of article.tags" (removed)="removeTag(tag)">
                                 {{tag}}
                                 <button matChipRemove>
@@ -30,7 +30,7 @@
                             <input placeholder="New tag..." [matChipInputFor]="chipList"
                                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
                                 (matChipInputTokenEnd)="addTag($event)">
-                        </mat-chip-list>
+                        </mat-chip-grid>
                     </mat-form-field>
                 </div>
             </div>
