@@ -76,15 +76,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "member-registration:build",
-            "port": 4220
+            "port": 4220,
+            "buildTarget": "member-registration:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "member-registration:build:production"
+              "buildTarget": "member-registration:build:production"
             },
             "development": {
-              "browserTarget": "member-registration:build:development"
+              "buildTarget": "member-registration:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,7 +92,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "member-registration:build"
+            "buildTarget": "member-registration:build"
           }
         },
         "test": {
