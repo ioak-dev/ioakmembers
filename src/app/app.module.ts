@@ -57,6 +57,7 @@ import { BookmarksComponent } from './resources/bookmarks/bookmarks.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { CreateEditArticleComponent } from './articles/create-edit-article/create-edit-article.component';
 import { QuillModule } from 'ngx-quill';
+import { AuthliteFormsWidgetsModule } from 'authlite-forms-widgets';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +81,7 @@ import { QuillModule } from 'ngx-quill';
     CreateEditArticleComponent
   ],
   imports: [
+    AuthliteFormsWidgetsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

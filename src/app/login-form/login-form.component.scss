@@ -1,7 +1,7 @@
 .login_container {
   display: grid;
   grid-template-rows: auto 1fr;
-  align-content: center;
+  //align-content: center;
   align-items: center;
   box-sizing: border-box;
   // background-color: #f6f6f6;
@@ -23,7 +23,8 @@
     // box-shadow: 0px 2px 2px #e0e0e0;
     border-radius: 10px;
     gap: 25px;
-    width: 400px;
+    //width: 400px;
+    width: auto;
     max-width: 90vw;
     // margin: auto;
     // background-color: #ffffff;
